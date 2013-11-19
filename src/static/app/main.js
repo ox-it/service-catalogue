@@ -70,6 +70,6 @@ define(['require', "jquery", "backbone",
 	
 	Backbone.history.start({
 		pushState: true,
-		root: "/"
+		root: "/service-catalogue/src/"
 	});
 });

@@ -4,11 +4,10 @@ define(['backbone', 'model', 'und!index/templates/index.html'], function(Backbon
 		render: function() {
 		    Backbone.trigger('domchange:title', null);
 		    
-		    model.categories.fetch().complete(_.bind(function() {
 				this.$el.html(this.template({
-					categories: model.categories
+					categories: model.categories,
+					services: model.services
 				}));
-		    }, this));
 
 		}
 	});

@@ -68,8 +68,13 @@ define(['require', "jquery", "backbone",
 		}
 	});
 	
+
+    model.categories.fetch().complete(_.bind(function() {
+        model.services.fetch().complete(_.bind(function() {
 	Backbone.history.start({
 		pushState: true,
 		root: "/service-catalogue/src/"
 	});
+        }, this));
+    }, this));
 });

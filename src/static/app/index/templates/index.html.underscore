@@ -9,3 +9,12 @@
     </li><% }); %>
   </ul>
 </section>
+<section id="services">
+  <h2 class="hidden">Services</h2>
+  <ul><% services.forEach(function(service) { %><li>
+      <a href="/service/<%- service.get("slug") %>">
+        <%- service.get("label") %>
+      </a>
+    </li><% }); %>
+  </ul>
+</section>

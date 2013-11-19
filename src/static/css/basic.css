@@ -18,11 +18,12 @@ aside#service-categories ul {
 }
 
 aside#service-categories li {
-	padding: 0.5em;
 }
 
 aside#service-categories a {
 	text-decoration: none;
+	display: block;
+	padding: 0.5em;
 }
 
 section#service-categories ul {

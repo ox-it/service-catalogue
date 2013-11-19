@@ -1,4 +1,5 @@
 <h1>Service Catalogue</h1>
+<div id="homepage-container">
 <section id="service-categories">
   <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(category) { %><li>
@@ -18,3 +19,4 @@
     </li><% }); %>
   </ul>
 </section>
+</div>

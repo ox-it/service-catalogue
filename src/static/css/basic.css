@@ -66,3 +66,22 @@ section#service-categories i.fa {
 	line-height: 0;
 	font-size: 3em;
 }
+
+#homepage-container {
+	padding-right: 400px;
+	position: relative;
+}
+
+#homepage-container #services {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 400px;
+	max-height: 600px;
+	overflow: scroll;
+}
+
+#services ul {
+	list-style: none;
+	padding-left: 0;
+}

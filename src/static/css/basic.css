@@ -38,8 +38,8 @@ section#service-categories li {
 
 section#service-categories a {
 	margin: 0.5em;
-	background-color: #bbe;
-	padding-left: 4em;
+	background-color: #88a;
+	padding-left: 5em;
 	position: relative;
 	height: 6em;
 	display: block;
@@ -47,16 +47,17 @@ section#service-categories a {
 	color: #fff;
 	text-decoration: none;
 	border-radius: 1em;
+	font-family: sans-serif;
 }
 
 section#service-categories a:hover {
-	background-color: #77a;
+	background-color: #448;
 	color: #ccc;
 }
 
 section#service-categories i.fa {
 	position: absolute;
-	left: 0em;
+	left: 0.2em;
 	text-align: center;
 	top: 50%;
 	line-height: 0;

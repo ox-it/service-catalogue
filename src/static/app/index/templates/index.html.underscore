@@ -1,0 +1,11 @@
+<h1>Service Catalogue</h1>
+<section id="service-categories">
+  <h2 class="hidden">Categories</h2>
+  <ul><% categories.forEach(function(category) { %><li>
+      <a href="/category/<%- category.get("slug") %>">
+        <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
+        <%- category.get("label") %>
+      </a>
+    </li><% }); %>
+  </ul>
+</section>

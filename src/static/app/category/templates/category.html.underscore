@@ -1,0 +1,17 @@
+<h1><%- category.label %></h1>
+<section id="service-category-services">
+  <ul><% false && category.services.forEach(function(service) { %><li>
+    </li><% }); %>
+  </ul>
+</section>
+<aside id="service-categories">
+  <h2>Categories</h2>
+  <ul><% categories.forEach(function(otherCategory) { %>
+    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
+      <a href="/category/<%- otherCategory.get("slug") %>">
+        <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
+        <%- otherCategory.get("label") %>
+      </a>
+    </li><% }); %>
+  </ul>
+</aside>

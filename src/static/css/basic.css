@@ -1,0 +1,63 @@
+.hidden {
+	text-indent: -9999px;
+	position: absolute;;
+}
+
+.active {
+	background-color: #aaa;
+}
+
+aside#service-categories {
+	float: right;
+	max-width: 500px;
+}
+
+aside#service-categories ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+aside#service-categories li {
+	padding: 0.5em;
+}
+
+aside#service-categories a {
+	text-decoration: none;
+}
+
+section#service-categories ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+section#service-categories li {
+	display: inline-block;
+	width: 33.33%;
+}
+
+section#service-categories a {
+	margin: 0.5em;
+	background-color: #bbe;
+	padding-left: 4em;
+	position: relative;
+	height: 6em;
+	display: block;
+	vertical-align: middle;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 1em;
+}
+
+section#service-categories a:hover {
+	background-color: #77a;
+	color: #ccc;
+}
+
+section#service-categories i.fa {
+	position: absolute;
+	left: 0em;
+	text-align: center;
+	top: 50%;
+	line-height: 0;
+	font-size: 3em;
+}

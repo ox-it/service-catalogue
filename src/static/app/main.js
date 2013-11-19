@@ -1,13 +1,16 @@
 define(['require', "jquery", "backbone",
-        "index/view"],
+        "model",
+        "index/view", "category/view"],
   function(require, $, Backbone,
-		   IndexView) {
+		   model,
+		   IndexView, CategoryView) {
     
     if (!window.console) console = {log: function() {}};
     
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			"": "index"
+			"": "index",
+			"category/:slug": "category"
 		}
 	});
 
@@ -23,22 +26,8 @@ define(['require', "jquery", "backbone",
 			currentView.remove();
 		
 		currentView = view;
-		content.empty().append(currentView.el);
 		currentView.render();
-
-		var currentHash = window.location.hash.substr(1).split('/');
-		$('a.highlight-nav').each(function() {
-			var hash = this.hash.substr(1).split('/');
-			if (!($(this).closest('.navbar').length || hash.length == currentHash.length))
-				return;
-			for (var i=0; i<hash.length; i++) {
-				if (hash[i] != currentHash[i]) {
-					$(this).parent().removeClass('active');
-					return;
-				}
-			}
-			$(this).parent().addClass('active');
-		});
+		content.empty().append(currentView.el);
 	};
 	
 	var indexView = null;
@@ -46,6 +35,15 @@ define(['require', "jquery", "backbone",
 		if (!indexView)
 			indexView = new IndexView();
 		renderView(indexView);
+	});
+
+	var categoryViews = {};
+	app_router.on('route:category', function(slug) {
+		if (!categoryViews[slug])
+			categoryViews[slug] = new CategoryView({
+				model: model.categories.get(slug)
+			});
+		renderView(categoryViews[slug]);
 	});
 
 	Backbone.on('domchange:title', function(title) {
@@ -58,5 +56,20 @@ define(['require', "jquery", "backbone",
 		app_router.navigate.apply(app_router, arguments);
 	});
 	
-	Backbone.history.start();
+	$(document).on('click', "a[href^='/']", function(event) {
+		var href = $(event.currentTarget).attr('href');
+		try{
+			app_router.navigate(href, {trigger: true});
+		} catch (e) {
+			console.log(e);
+		} finally {
+			event.preventDefault();
+			return false;
+		}
+	});
+	
+	Backbone.history.start({
+		pushState: true,
+		root: "/"
+	});
 });

@@ -10,7 +10,8 @@ define(['require', "jquery", "backbone",
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			"": "index",
-			"category/:slug": "category"
+			"category/:slug": "category",
+			"*p": "not-found"
 		}
 	});
 
@@ -31,6 +32,9 @@ define(['require', "jquery", "backbone",
 	};
 	
 	var notFoundView = new NotFoundView();
+	app_router.on('route:not-found', function() {
+		renderView(notFoundView);
+	});
 	
 	var indexView = null;
 	app_router.on('route:index', function() {

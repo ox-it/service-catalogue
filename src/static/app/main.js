@@ -1,9 +1,9 @@
 define(['require', "jquery", "backbone",
         "model",
-        "index/view", "category/view"],
+        "index/view", "category/view", "not-found/view"],
   function(require, $, Backbone,
 		   model,
-		   IndexView, CategoryView) {
+		   IndexView, CategoryView, NotFoundView) {
     
     if (!window.console) console = {log: function() {}};
     
@@ -30,6 +30,8 @@ define(['require', "jquery", "backbone",
 		content.empty().append(currentView.el);
 	};
 	
+	var notFoundView = new NotFoundView();
+	
 	var indexView = null;
 	app_router.on('route:index', function() {
 		if (!indexView)
@@ -39,11 +41,16 @@ define(['require', "jquery", "backbone",
 
 	var categoryViews = {};
 	app_router.on('route:category', function(slug) {
-		if (!categoryViews[slug])
-			categoryViews[slug] = new CategoryView({
-				model: model.categories.get(slug)
-			});
-		renderView(categoryViews[slug]);
+		var model = model.categories.get(slug);
+		if (!model) {
+			renderView(notFoundView);
+		} else {
+			if (!categoryViews[slug])
+				categoryViews[slug] = new CategoryView({
+					model: model
+				});
+			renderView(categoryViews[slug]);
+		}
 	});
 
 	Backbone.on('domchange:title', function(title) {

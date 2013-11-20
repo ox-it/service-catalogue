@@ -52,6 +52,10 @@ define(['require', "jquery", "backbone",
 	    else
 	        $(document).attr('title', title + ' — IT Services');
 	}, this);
+	Backbone.on('domchange:status', function(status) {
+		$("meta[name='prerender-status-code']").attr('content', status);
+	});
+
 	Backbone.on('app:navigate', function() {
 		app_router.navigate.apply(app_router, arguments);
 	});

@@ -9,7 +9,7 @@
         <a href="<%- service.get("homepage") %>" title="Homepage"><i class="fa fa-fw fa-globe"> </i></a>
       <% } %>
       <% if (service.get("twitter")) { %>
-        <a href="<%- service.get("twitter") %>" title="@<%- service.get("twitter") %> on Twitter"><i class="fa fa-fw fa-twitter"> </i></a>
+        <a href="https://twitter.com/<%- service.get("twitter") %>" title="@<%- service.get("twitter") %> on Twitter"><i class="fa fa-fw fa-twitter"> </i></a>
       <% } %>
       <%= statusTemplate({status: status, service: service}) %>
     </div>

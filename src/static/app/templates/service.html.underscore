@@ -1,0 +1,27 @@
+<section>
+  <h1><a href="/"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i>
+    <%- service.get("label") %></h1>
+  <div class="service-description">
+    <% if (service.get("description_html")) { %>
+      <%= service.get("description_html") %>
+    <% } else { %>
+      <%- service.get("description") %>
+    <% } %>
+  </div>
+  <table class="service-details">
+    <tbody><% if (service.get("homepage")) { %>
+      <tr>
+        <th>Homepage</th>
+        <td><a href="<%- service.get("homepage") %>"><%- service.get("homepage") %></a></td>
+      </tr><% } if (service.get("serviceInformation")) { %>
+      <tr>
+        <th>More information</th>
+        <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
+      </tr><% } if (service.get("twitter")) { %>
+      <tr>
+        <th>Twitter</th>
+        <td><a href="https://twitter.com/<%- service.get("twitter") %>"><i class="fa fa-twitter"> </i><%- service.get("twitter") %></a></td>
+      </tr><% } %>
+    </tbody>
+  </table>
+</section>

@@ -10,7 +10,7 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 	});
 
 	var Service = Backbone.Model.extend({
-		idAttribute: "uri"
+		idAttribute: "slug"
 	});
 
 	var Categories = Backbone.Collection.extend({
@@ -47,7 +47,8 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 					twitter: (e._source.account || {}).twitter,
 					statusId: (e._source.account || {}).status,
 					homepage: (e._source.homepage || {}).uri,
-					weblog: (e._source.weblog || {}).uri
+					weblog: (e._source.weblog || {}).uri,
+					serviceInformation: (e._source.serviceInformation || {}).uri
 				};
 			}), function(e) {
 				return e.label.toLowerCase();

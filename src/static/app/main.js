@@ -1,9 +1,9 @@
 define(['require', "jquery", "backbone",
         "model", "status",
-        "index/view", "category/view", "not-found/view"],
+        "index/view", "category/view", "service/view", "not-found/view"],
   function(require, $, Backbone,
 		   model, status,
-		   IndexView, CategoryView, NotFoundView) {
+		   IndexView, CategoryView, ServiceView, NotFoundView) {
     
     if (!window.console) console = {log: function() {}};
     
@@ -11,6 +11,7 @@ define(['require', "jquery", "backbone",
 		routes: {
 			"": "index",
 			"category/:slug": "category",
+			"service/:slug": "service",
 			"*p": "not-found"
 		}
 	});
@@ -54,6 +55,20 @@ define(['require', "jquery", "backbone",
 					model: category
 				});
 			renderView(categoryViews[slug]);
+		}
+	});
+
+	var serviceViews = {};
+	app_router.on('route:service', function(slug) {
+		var service = model.services.get(slug);
+		if (!service) {
+			renderView(notFoundView);
+		} else {
+			if (!serviceViews[slug])
+				serviceViews[slug] = new ServiceView({
+					model: service
+				});
+			renderView(serviceViews[slug]);
 		}
 	});
 

@@ -28,11 +28,13 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 		model: Service,
 		url: "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
 		parse: function(response) {
-			return _.map(response.hits.hits, function(e) {
+			return _.sortBy(_.map(response.hits.hits, function(e) {
 				return {
 					label: e._source.label,
 					slug: e._source.notation ? e._source.notation.service : 'x' 
 				};
+			}), function(e) {
+				return e.label.toLowerCase();
 			});
 		}
 	});

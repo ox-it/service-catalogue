@@ -82,6 +82,6 @@ section#service-categories i.fa {
 #services ul {
 	list-style: none;
 	padding-left: 0;
-	max-height: 600px;
-	overflow: scroll;
+	height: 600px;
+	overflow-y: scroll;
 }

@@ -22,22 +22,43 @@ define(['backbone', 'jquery', 'underscore',
 				ev.preventDefault();
 			}, this));
 		},
+		currentFilterCallback: null,
 		filterServices: function() {
 			var val = $.trim(this.$serviceSearch.val());
 			if (val.length == 0) {
 				$(document).attr('title', 'n');
+				this.sortServices(null);
 			} else {
+				var callback = _.bind(function(data) {
+					if (this.currentFilterCallback != callback)
+						return;
+					$(document).attr('title', data.hits.hits.length);
+					var slugs = {}, i = 0;
+					_.each(data.hits.hits, function(e) {
+						slugs[e._source.notation.service] = i++;
+					});
+					this.sortServices(slugs);
+				}, this);
+				this.currentFilterCallback = callback;
 				$.get('https://data.ox.ac.uk/search/', {
 					format: 'json',
 					type: 'service',
 					'filter.organizationPart.uri': 'http://oxpoints.oucs.ox.ac.uk/id/31337175',
 					page_size: '3000',
 					q: val + '*'
-				}, function(data) {
-					$(document).attr('title', data.hits.hits.length);
-
-				}, 'json');
+				}, callback, 'json');
 			}
+		},
+		sortServices: function(slugs) {
+			var $ul = $('#services ul');
+			var lis = $ul.find('li').get();
+			lis = _.sortBy(lis, function(li) {
+				return slugs ? slugs[li.getAttribute('data-slug')] : li.getAttribute('data-label').toLowerCase();
+			});
+			_.each(lis, function(li) {
+				$(li).toggle(!slugs || (li.getAttribute('data-slug') in slugs));
+				$ul.append(li);
+			});
 		}
 	});
 

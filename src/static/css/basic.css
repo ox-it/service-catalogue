@@ -67,12 +67,12 @@ section#service-categories i.fa {
 	font-size: 3em;
 }
 
-#homepage-container {
+#container {
 	padding-right: 400px;
 	position: relative;
 }
 
-#homepage-container #services {
+#container .sidebar-right {
 	position: absolute;
 	top: 0;
 	right: 0;

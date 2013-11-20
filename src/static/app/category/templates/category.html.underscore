@@ -1,10 +1,14 @@
-<h1><%- category.label %></h1>
-<section id="service-category-services">
-  <ul><% false && category.services.forEach(function(service) { %><li>
+<div id="container">
+<h1><%- category.get("label") %></h1>
+
+<section id="service-category-services" class="main-left">
+  <ul><% category.getServices().forEach(function(service) { %><li>
+    <h2><%- service.get("label") %></h2>
+    <p><%= service.get("description_html") || _.escape(service.get("description")) %></p>
     </li><% }); %>
   </ul>
 </section>
-<aside id="service-categories">
+<aside id="service-categories" class="sidebar-right">
   <h2>Categories</h2>
   <ul><% categories.forEach(function(otherCategory) { %>
     <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
@@ -15,3 +19,4 @@
     </li><% }); %>
   </ul>
 </aside>
+</div>

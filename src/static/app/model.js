@@ -1,6 +1,12 @@
 define(['backbone', 'underscore'], function(Backbone, _) {
 	var Category = Backbone.Model.extend({
-		idAttribute: "slug"
+		idAttribute: "slug",
+		getServices: function() {
+			var uri = this.get("uri");
+			return services.filter(function(service) {
+				return _.contains(service.get("subject"), uri); 
+			});
+		}
 	});
 
 	var Service = Backbone.Model.extend({
@@ -18,11 +24,13 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 					slug: e._source.notation.serviceCategory,
 					featured: e._source.featured ? _.map(e._source.featured, function(e) {
 						return e.uri;
-					}) : []
+					}) : [],
+					uri: e._source.uri
 				};
 			});
 		}
 	});
+	var categories = new Categories();
 	
 	var Services = Backbone.Collection.extend({
 		model: Service,
@@ -31,18 +39,23 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
 				return {
 					label: e._source.label,
-					slug: e._source.notation ? e._source.notation.service : 'x' 
+					slug: e._source.notation.service,
+					uri: e._source.uri,
+					description: e._source.description,
+					description_html: e._source.descriptionHTML,
+					subject: _.map(e._source.subject, function(e) { return e.uri; })
 				};
 			}), function(e) {
 				return e.label.toLowerCase();
 			});
 		}
 	});
+	var services = new Services();
 	
 	return {
 		Category: Category,
-		categories: new Categories(),
+		categories: categories,
 		Service: Service,
-		services: new Services()
+		services: services
 	};
 })

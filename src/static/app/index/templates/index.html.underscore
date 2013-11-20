@@ -1,6 +1,6 @@
 <h1>Service Catalogue</h1>
-<div id="homepage-container">
-<section id="service-categories">
+<div id="container">
+<section id="service-categories" class="main-left">
   <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(category) { %><li>
       <a href="/category/<%- category.get("slug") %>">
@@ -10,7 +10,7 @@
     </li><% }); %>
   </ul>
 </section>
-<section id="services">
+<section id="services" class="sidebar-right">
   <h2 class="hidden">Services</h2>
   <form method="get" action="/search">
     <input id="service-search" name="q" placeholder="Search services" autocomplete="off">

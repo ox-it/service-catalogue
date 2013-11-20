@@ -9,7 +9,7 @@ body {
 
 
 aside#service-categories .active a, aside#service-categories a:hover {
-	background-color: #aaa;
+	background-color: #848;
 	color: #fff;
 }
 
@@ -84,4 +84,28 @@ section#service-categories i.fa {
 	padding-left: 0;
 	height: 600px;
 	overflow-y: scroll;
+}
+
+.services {
+	list-style: none;
+	padding: 0.1em;
+}
+
+.service {
+	position: relative;
+	padding-left: 2em;
+	border-left: 2px solid #848;
+	margin: 1em 1em 1em 0;
+}
+
+.service h2 {
+	margin-bottom: 0.2em;
+}
+
+.service-links {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1.5em;
+	padding: 0.3em;
 }

@@ -43,7 +43,11 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 					uri: e._source.uri,
 					description: e._source.description,
 					description_html: e._source.descriptionHTML,
-					subject: _.map(e._source.subject, function(e) { return e.uri; })
+					subject: _.map(e._source.subject, function(e) { return e.uri; }),
+					twitter: (e._source.account || {}).twitter,
+					status: (e._source.account || {}).status,
+					homepage: (e._source.homepage || {}).uri,
+					weblog: (e._source.weblog || {}).uri
 				};
 			}), function(e) {
 				return e.label.toLowerCase();

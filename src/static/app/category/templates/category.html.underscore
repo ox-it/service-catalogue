@@ -2,9 +2,21 @@
 <h1><a href="/"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i> <%- category.get("label") %></h1>
 
 <section id="service-category-services" class="main-left">
-  <ul><% category.getServices().forEach(function(service) { %><li>
-    <h2><%- service.get("label") %></h2>
-    <p><%= service.get("description_html") || _.escape(service.get("description")) %></p>
+  <ul class="services"><% category.getServices().forEach(function(service) { %><li class="service">
+    <h2><a href="/service/<%- service.get("slug") %>"><%- service.get("label") %></a></h2>
+    <div class="service-links">
+      <% if (service.get("homepage")) { %>
+        <a href="<%- service.get("homepage") %>" title="Homepage"><i class="fa fa-fw fa-globe"> </i></a>
+      <% } %>
+      <% if (service.get("twitter")) { %>
+        <a href="<%- service.get("twitter") %>" title="@<%- service.get("twitter") %> on Twitter"><i class="fa fa-fw fa-twitter"> </i></a>
+      <% } %>
+    </div>
+    <% if (service.get("description_html")) { %>
+      <%= service.get("description_html") %>
+    <% } else { %>
+      <p><%- service.get("description") %></p>
+    <% } %>
     </li><% }); %>
   </ul>
 </section>

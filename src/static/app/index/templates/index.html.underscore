@@ -12,6 +12,10 @@
 </section>
 <section id="services">
   <h2 class="hidden">Services</h2>
+  <form method="get" action="/search">
+    <input id="service-search" name="q" placeholder="Search services">
+    <input type="submit" value="Go!">
+  </form>
   <ul><% services.forEach(function(service) { %><li>
       <a href="/service/<%- service.get("slug") %>">
         <%- service.get("label") %>

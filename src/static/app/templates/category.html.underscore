@@ -11,6 +11,7 @@
       <% if (service.get("twitter")) { %>
         <a href="<%- service.get("twitter") %>" title="@<%- service.get("twitter") %> on Twitter"><i class="fa fa-fw fa-twitter"> </i></a>
       <% } %>
+      <%= statusTemplate({status: status, service: service}) %>
     </div>
     <% if (service.get("description_html")) { %>
       <%= service.get("description_html") %>

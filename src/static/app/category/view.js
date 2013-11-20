@@ -1,4 +1,7 @@
-define(['backbone', 'model', 'und!category/templates/category.html'], function(Backbone, model, categoryTemplate) {
+define(['backbone', 'model', 'status',
+        'und!templates/category.html',
+        'und!templates/status.html'],
+        function(Backbone, model, status, categoryTemplate, statusTemplate) {
 	var CategoryView = Backbone.View.extend({
 		template: categoryTemplate,
 		render: function() {
@@ -7,7 +10,9 @@ define(['backbone', 'model', 'und!category/templates/category.html'], function(B
 			this.$el.html(this.template({
 				categories: model.categories,
 				category: this.model,
-				slug: this.model.get("slug")
+				slug: this.model.get("slug"),
+				status: status,
+				statusTemplate: statusTemplate
 			}));
 		}
 	});

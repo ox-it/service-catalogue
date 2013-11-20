@@ -1,8 +1,8 @@
 define(['require', "jquery", "backbone",
-        "model",
+        "model", "status",
         "index/view", "category/view", "not-found/view"],
   function(require, $, Backbone,
-		   model,
+		   model, status,
 		   IndexView, CategoryView, NotFoundView) {
     
     if (!window.console) console = {log: function() {}};
@@ -77,19 +77,21 @@ define(['require', "jquery", "backbone",
 			app_router.navigate(href, {trigger: true});
 		} catch (e) {
 			console.log(e);
-		} finally {
-			event.preventDefault();
-			return false;
 		}
+		event.preventDefault();
+		return false;
 	});
 	
 
     model.categories.fetch().complete(_.bind(function() {
         model.services.fetch().complete(_.bind(function() {
-	Backbone.history.start({
-		pushState: true,
-		root: "/service-catalogue/src/"
-	});
+        	Backbone.history.start({
+        		pushState: true,
+        		root: "/service-catalogue/src/"
+        	});
+        	status.registerForStatusUpdates();
+        	status.updateStatus();
+        	setInterval(status.updateStatus, 60000);
         }, this));
     }, this));
 });

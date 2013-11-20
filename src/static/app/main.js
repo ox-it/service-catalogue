@@ -41,13 +41,13 @@ define(['require', "jquery", "backbone",
 
 	var categoryViews = {};
 	app_router.on('route:category', function(slug) {
-		var model = model.categories.get(slug);
+		var category = model.categories.get(slug);
 		if (!model) {
 			renderView(notFoundView);
 		} else {
 			if (!categoryViews[slug])
 				categoryViews[slug] = new CategoryView({
-					model: model
+					model: category
 				});
 			renderView(categoryViews[slug]);
 		}

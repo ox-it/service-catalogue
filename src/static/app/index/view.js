@@ -1,4 +1,7 @@
-define(['backbone', 'jquery', 'model', 'und!index/templates/index.html'], function(Backbone, $, model, indexTemplate) {
+define(['backbone', 'jquery', 'underscore',
+        'model', 'und!index/templates/index.html'],
+        function(Backbone, $, _,
+        		model, indexTemplate) {
 	var IndexView = Backbone.View.extend({
 		template: indexTemplate,
 		render: function() {
@@ -10,23 +13,31 @@ define(['backbone', 'jquery', 'model', 'und!index/templates/index.html'], functi
 				services: model.services
 			}));
 
-			this.$el.find('#service-search').on('keyup', function(ev) {
-				var val = $.trim($(this).val());
-				if (val.length == 0) {
-					$(document).attr('title', 'n');
-				} else {
-					$.get('https://data.ox.ac.uk/search/', {
-						format: 'json',
-						type: 'service',
-						'filter.organizationPart.uri': 'http://oxpoints.oucs.ox.ac.uk/id/31337175',
-						page_size: '3000',
-						q: val + '*'
-					}, function(data) {
-						$(document).attr('title', data.hits.hits.length);
+			this.$serviceSearch = this.$el.find('#service-search');
+			this.$serviceSearch.on('input', _.bind(this.filterServices, this));
+			this.$serviceSearchClear = this.$el.find('#service-search-clear');
+			this.$serviceSearchClear.on('click', _.bind(function(ev) {
+				this.$serviceSearch.val("").focus();
+				this.filterServices();
+				ev.preventDefault();
+			}, this));
+		},
+		filterServices: function() {
+			var val = $.trim(this.$serviceSearch.val());
+			if (val.length == 0) {
+				$(document).attr('title', 'n');
+			} else {
+				$.get('https://data.ox.ac.uk/search/', {
+					format: 'json',
+					type: 'service',
+					'filter.organizationPart.uri': 'http://oxpoints.oucs.ox.ac.uk/id/31337175',
+					page_size: '3000',
+					q: val + '*'
+				}, function(data) {
+					$(document).attr('title', data.hits.hits.length);
 
-					}, 'json');
-				}
-			})
+				}, 'json');
+			}
 		}
 	});
 

@@ -14,7 +14,7 @@
   <h2 class="hidden">Services</h2>
   <form method="get" action="/search">
     <input id="service-search" name="q" placeholder="Search services" autocomplete="off">
-    <input type="reset" value="&times;">
+    <input id="service-search-clear" type="reset" value="&times;">
     <input type="submit" value="Go!">
   </form>
   <ul><% services.forEach(function(service) { %><li>

@@ -26,13 +26,11 @@ define(['backbone', 'jquery', 'underscore',
 		filterServices: function() {
 			var val = $.trim(this.$serviceSearch.val());
 			if (val.length == 0) {
-				$(document).attr('title', 'n');
 				this.sortServices(null);
 			} else {
 				var callback = _.bind(function(data) {
 					if (this.currentFilterCallback != callback)
 						return;
-					$(document).attr('title', data.hits.hits.length);
 					var slugs = {}, i = 0;
 					_.each(data.hits.hits, function(e) {
 						slugs[e._source.notation.service] = i++;

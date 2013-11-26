@@ -14,7 +14,6 @@ a, a:link, a:visited {
 }
 section#service-categories {
 
-	border: 1px solid red;
 	position: relative;	
 }
 
@@ -58,7 +57,7 @@ section#service-categories li {
 	vertical-align: middle;
 
 	text-decoration: none;
-	border-radius: 3px;
+	border-radius: 5px;
 	width: 30%;
 
 	
@@ -69,7 +68,6 @@ section#service-categories a {
 	display: block;
 	color: #fff;
 	padding: 1em;
-	border: 1px solid red;
 	height: 8em;
 }
 

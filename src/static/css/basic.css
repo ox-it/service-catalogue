@@ -4,7 +4,7 @@ body {
 
 .hidden {
 	text-indent: -9999px;
-	position: absolute;;
+	position: absolute;
 }
 
 a, a:link, a:visited {

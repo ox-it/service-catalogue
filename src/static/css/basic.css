@@ -13,7 +13,8 @@ a, a:link, a:visited {
 	text-decoration: none;
 }
 section#service-categories {
-	
+	width: 60%;
+	border: 1px solid red;
 	position: relative;	
 }
 
@@ -88,7 +89,7 @@ section#service-categories i.fa {
 }
 
 #container {
-	margin-right: 400px;
+	padding-right: 400px;
 	position: relative;
 }
 

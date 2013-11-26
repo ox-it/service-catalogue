@@ -68,6 +68,7 @@ section#service-categories a {
 	text-decoration: none;
 	border-radius: 3px;
 	width: 32%;
+	width: 200px;
 }
 
 section#service-categories a:hover {

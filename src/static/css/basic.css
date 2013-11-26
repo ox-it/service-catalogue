@@ -7,6 +7,12 @@ body {
 	position: absolute;;
 }
 
+a, a:link, a:visited {
+	
+	color: #999;
+	text-decoration: underline;
+}
+
 
 aside#service-categories .active a, aside#service-categories a:hover {
 	background-color: #848;

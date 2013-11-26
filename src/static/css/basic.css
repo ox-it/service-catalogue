@@ -12,7 +12,10 @@ a, a:link, a:visited {
 	color: #999;
 	text-decoration: none;
 }
-
+section#service-categories {
+	
+	position: relative;	
+}
 
 aside#service-categories .active a, aside#service-categories a:hover {
 	background-color: #848;

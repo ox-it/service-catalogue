@@ -68,9 +68,9 @@ section#service-categories a {
 	
 	display: block;
 	color: #fff;
-
-	border: 1px solid white;
-	height: 10em;
+	padding: 1em;
+	border: 1px solid red;
+	height: 8em;
 }
 
 section#service-categories a:hover {

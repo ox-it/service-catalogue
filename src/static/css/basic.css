@@ -42,7 +42,7 @@ section#service-categories ul {
 }
 
 section#service-categories li {
-	display: inline;
+	display: inline-block;
 	margin: 0px;
 	padding: 0px;
 	width: 33.33%;

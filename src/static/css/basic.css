@@ -60,7 +60,7 @@ section#service-categories a {
 	vertical-align: middle;
 	color: #fff;
 	text-decoration: none;
-	border-radius: 2px;
+	border-radius: 3px;
 }
 
 section#service-categories a:hover {
@@ -98,7 +98,7 @@ section#service-categories i.fa {
 
 #services ul li {
 
-	line-height: 1.5em;
+	line-height: 1em;
 	margin: 0px 0px 1em 0px;
 }
 

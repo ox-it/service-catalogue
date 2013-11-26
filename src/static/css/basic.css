@@ -47,16 +47,6 @@ section#service-categories ul {
 }
 
 section#service-categories li {
-	display: inline;
-	margin: 0px;
-	padding: 0px;
-
-	
-}
-
-section#service-categories a {
-	
-	
 	margin: 0.5em;
 	background-color: #88a;
 	background-color: #002147;
@@ -70,6 +60,14 @@ section#service-categories a {
 	text-decoration: none;
 	border-radius: 3px;
 	width: 32%;
+
+	
+}
+
+section#service-categories a {
+	
+	
+
 
 }
 

@@ -46,6 +46,7 @@ section#service-categories li {
 section#service-categories a {
 	margin: 0.5em;
 	background-color: #88a;
+	background-color: #002147;
 	padding-left: 5em;
 	position: relative;
 	height: 10em;

@@ -56,10 +56,10 @@ section#service-categories li {
 	height: 10em;
 	display: inline-block;
 	vertical-align: middle;
-	color: #fff;
+
 	text-decoration: none;
 	border-radius: 3px;
-	width: 32%;
+	width: 30%;
 
 	
 }
@@ -67,8 +67,9 @@ section#service-categories li {
 section#service-categories a {
 	
 	display: block;
-	width: 100%;
-
+	color: #fff;
+	padding-left: 5em;
+	border: 1px solid white;
 
 }
 

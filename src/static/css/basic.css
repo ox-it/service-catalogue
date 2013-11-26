@@ -22,6 +22,7 @@ aside#service-categories .active a, aside#service-categories a:hover {
 aside#service-categories {
 	float: right;
 	max-width: 500px;
+	position: relative;
 }
 
 aside#service-categories ul {

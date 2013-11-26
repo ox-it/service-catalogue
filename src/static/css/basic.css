@@ -37,7 +37,10 @@ section#service-categories ul {
 
 section#service-categories li {
 	display: inline;
+	margin: 0px;
+	padding: 0px;
 	width: 33.33%;
+	
 }
 
 section#service-categories a {
@@ -45,12 +48,12 @@ section#service-categories a {
 	background-color: #88a;
 	padding-left: 5em;
 	position: relative;
-	height: 6em;
+	height: 10em;
 	display: block;
 	vertical-align: middle;
 	color: #fff;
 	text-decoration: none;
-	border-radius: 1em;
+	border-radius: 2px;
 }
 
 section#service-categories a:hover {

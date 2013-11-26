@@ -96,6 +96,11 @@ section#service-categories i.fa {
 	overflow-y: scroll;
 }
 
+#services ul li {
+
+	margin: 0px 0px 1em 0px;
+}
+
 .services {
 	list-style: none;
 	padding: 0.1em;

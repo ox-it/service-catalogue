@@ -118,7 +118,7 @@ section#service-categories i.fa {
 
 .service {
 	position: relative;
-	border-left: 2px solid #848;
+	border-left: 12px solid #848;
 	margin: 1em 1em 1em 2em;
 	padding: 0 0.9em;
 }

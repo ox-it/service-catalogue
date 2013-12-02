@@ -2,6 +2,13 @@ body {
 	font-family: sans-serif;
 }
 
+h1 {
+  
+    font-size: 2.5em;
+  color: #4D87C7;
+  
+}
+
 .hidden {
 	text-indent: -9999px;
 	position: absolute;

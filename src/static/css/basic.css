@@ -66,6 +66,12 @@ aside#service-categories {
 	position: relative;
 }
 
+
+aside#service-categories h2{
+	top: -9000000px;
+	position: absolute;
+}
+
 aside#service-categories ul {
 	list-style: none;
 	padding-left: 0;

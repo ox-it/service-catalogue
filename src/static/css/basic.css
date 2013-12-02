@@ -48,7 +48,7 @@ section#service-categories {
 }
 
 aside#service-categories .active a, aside#service-categories a:hover {
-	background-color: #848;
+	background-color: #4D87C7;
 	color: #fff;
 }
 
@@ -148,7 +148,7 @@ section#service-categories i.fa {
 
 .service {
 	position: relative;
-	border-left: 12px solid #848;
+	border-left: 12px solid #4D87C7;
 	margin: 1em 1em 1em 2em;
 	padding: 0 0.9em;
 }

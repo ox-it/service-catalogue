@@ -115,9 +115,7 @@ section#service-categories a {
 	height: 8em;
 }
 
-section#service-categories a:hover {
-	background-color: #002147;
-}
+
 
 section#service-categories i.fa {
 	position: absolute;

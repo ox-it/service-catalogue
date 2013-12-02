@@ -139,7 +139,7 @@ section#service-categories i.fa {
 #services ul {
 	list-style: none;
 	padding-left: 0;
-	height: 60em;
+	height: 40em;
 	overflow-y: scroll;
 }
 

@@ -26,7 +26,7 @@ h3 {
   
 }
 
-h34{
+h4{
   
     font-size: 1.1em;
   
@@ -50,50 +50,50 @@ a:hover, a:focus, a:active {
 }
 
 
-section#service-categories {
+section#service-groups {
 
 	position: relative;	
 }
 
-aside#service-categories .active a, aside#service-categories a:hover {
+aside#service-groups .active a, aside#service-groups a:hover {
 	background-color: #4D87C7;
 	color: #fff;
 }
 
-aside#service-categories {
+aside#service-groups {
 	float: right;
 	max-width: 500px;
 	position: relative;
 }
 
 
-aside#service-categories h2{
+aside#service-groups h2{
 	top: -9000000px;
 	position: absolute;
 }
 
-aside#service-categories ul {
+aside#service-groups ul {
 	list-style: none;
 	padding-left: 0;
 }
 
-aside#service-categories a {
+aside#service-groups a {
 	text-decoration: none;
 	display: block;
 	padding: 0.5em;
 	color: #4D87C7;}
 
-section#service-categories ul {
+section#service-groups ul {
 	list-style: none;
 	padding-left: 0;
 }
 
-section#service-categories li {
+section#service-groups li {
 	
 	
 }
 
-section#service-categories a {
+section#service-groups a {
 	
 	
 	margin: 1%;
@@ -123,7 +123,7 @@ section#user-categories a {
 
 
 
-section#service-categories i.fa {
+section#service-groups i.fa {
 	position: absolute;
 	left: 0.2em;
 	text-align: center;

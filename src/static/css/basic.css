@@ -77,23 +77,23 @@ aside#service-groups ul {
 	padding-left: 0;
 }
 
-aside#service-groups a {
+section.groups a {
 	text-decoration: none;
 	display: block;
 	padding: 0.5em;
 	color: #4D87C7;}
 
-section#service-groups ul {
+section.groups ul {
 	list-style: none;
 	padding-left: 0;
 }
 
-section#service-groups li {
+section.groups li {
 	
 	
 }
 
-section#service-groups a {
+section.groups a {
 	
 	
 	margin: 1%;
@@ -111,11 +111,40 @@ float: left;
 	height: 8em;
 }
 
+section#service-groups a {
+	
+	
+	background-color: #435870;
 
-section#user-categories a {
+}
+
+
+section#service-groups a:hover,
+section#service-groups a:focus {
+	
+	
+	background-color: #002147;
+
+}
+
+
+
+
+section#user-groups a {
 
 	
 		background-color: #002147;
+
+}
+
+
+
+
+section#user-groups a:hover,
+section#user-groups a:focus {
+	
+	
+	background-color: #435870;
 
 }
 
@@ -163,14 +192,28 @@ section#service-groups i.fa {
 }
 
 .service {
-	position: relative;
-	border-left: 12px solid #4D87C7;
-	margin: 1em 1em 1em 3em;
-	padding: 0 0.9em;
+border-radius: 3px;
+background-color: #ebeff3;
+margin: 0.7em 0px 0px 0px;
+padding: 0.5em 1em;
+color: #444;
+
+}
+
+.service a {
+
+color: #4D87C7;
+}
+
+
+.service a:hover,
+.service a:focus {
+
+color: #001247;  
 }
 
 .service h2 {
-	margin-bottom: 0.2em;
+	margin: 0.3em 0px 0.7em 0px;
 }
 
 .service-links {

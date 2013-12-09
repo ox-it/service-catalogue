@@ -1,5 +1,5 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'und!templates/index.html'],
+        'model', 'tpl!templates/index'],
         function(Backbone, $, _,
         		model, indexTemplate) {
 	var IndexView = Backbone.View.extend({

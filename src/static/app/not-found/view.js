@@ -1,4 +1,4 @@
-define(['backbone', 'und!not-found/templates/not-found.html'], function(Backbone, notFoundTemplate) {
+define(['backbone', 'tpl!templates/not-found'], function(Backbone, notFoundTemplate) {
 	var NotFoundView = Backbone.View.extend({
 		template: notFoundTemplate,
 		render: function() {

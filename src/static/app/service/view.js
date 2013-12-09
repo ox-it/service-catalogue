@@ -1,5 +1,5 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'und!templates/service.html'],
+        'model', 'tpl!templates/service'],
         function(Backbone, $, _,
         		model, serviceTemplate) {
 	var ServiceView = Backbone.View.extend({

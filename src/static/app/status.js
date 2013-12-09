@@ -1,5 +1,5 @@
 define(['backbone', 'jquery', 'underscore', 'model',
-        'und!templates/status.html'], function(Backbone, $, _, model, statusTemplate) {
+        'tpl!templates/status'], function(Backbone, $, _, model, statusTemplate) {
 	var status = {
 		statuses: {
 			'Up': {

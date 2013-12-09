@@ -1,6 +1,6 @@
 define(['backbone', 'model', 'status',
-        'und!templates/category.html',
-        'und!templates/status.html'],
+        'tpl!templates/category',
+        'tpl!templates/status'],
         function(Backbone, model, status, categoryTemplate, statusTemplate) {
 	var CategoryView = Backbone.View.extend({
 		template: categoryTemplate,

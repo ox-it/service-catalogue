@@ -23,7 +23,7 @@
 </section>
 <div class="sidebar-right">
 <aside id="service-groups" class="groups">
-  <h2>Categories</h2>
+  <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(otherCategory) {
            if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %>
     <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
@@ -35,7 +35,7 @@
   </ul>
 </aside>
 <aside id="user-groups" class="groups">
-  <h2>User groups</h2>
+  <h2 class="hidden">User groups</h2>
   <ul><% categories.forEach(function(otherCategory) {
            if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %>
     <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>

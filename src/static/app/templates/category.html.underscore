@@ -21,15 +21,30 @@
     </li><% }); %>
   </ul>
 </section>
-<aside id="service-categories" class="sidebar-right">
+<div class="sidebar-right">
+<aside id="service-groups" class="groups">
   <h2>Categories</h2>
-  <ul><% categories.forEach(function(otherCategory) { %>
+  <ul><% categories.forEach(function(otherCategory) {
+           if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %>
     <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
       <a href="/category/<%- otherCategory.get("slug") %>">
         <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
         <%- otherCategory.get("label") %>
       </a>
-    </li><% }); %>
+    </li><% }}); %>
   </ul>
 </aside>
+<aside id="user-groups" class="groups">
+  <h2>User groups</h2>
+  <ul><% categories.forEach(function(otherCategory) {
+           if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %>
+    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
+      <a href="/category/<%- otherCategory.get("slug") %>">
+        <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
+        <%- otherCategory.get("label") %>
+      </a>
+    </li><% }}); %>
+  </ul>
+</aside>
+</div>
 </div>

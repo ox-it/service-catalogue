@@ -1,15 +1,30 @@
 <h1>Service Catalogue</h1>
 <div id="container">
-<section id="service-categories" class="main-left">
+<div class="main-left">
+<section id="service-groups">
   <h2 class="hidden">Categories</h2>
-  <ul><% categories.forEach(function(category) { %><li>
+  <ul><% categories.forEach(function(category) {
+           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') {%><li>
+      <a href="/category/<%- category.get("slug") %>">
+        <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
+        <span class="teaser"><%- category.get("teaser") %></span>
+        <%- category.get("label") %>
+      </a>
+    </li><% }}); %>
+  </ul>
+</section>
+<section id="user-groups">
+  <h2 class="hidden">User groups</h2>
+  <ul><% categories.forEach(function(category) {
+           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') {%><li>
       <a href="/category/<%- category.get("slug") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
         <%- category.get("label") %>
       </a>
-    </li><% }); %>
+    </li><% }}); %>
   </ul>
 </section>
+</div>
 <section id="services" class="sidebar-right">
   <h2 class="hidden">Services</h2>
   <form method="get" action="/search">

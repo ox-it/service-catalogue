@@ -45,6 +45,7 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 					uri: e._source.uri,
 					description: e._source.description,
 					description_html: e._source.descriptionHTML,
+					catalogueReady: e._source.catalogueReady,
 					subject: _.map(e._source.subject, function(e) { return e.uri; }),
 					twitter: (e._source.account || {}).twitter,
 					statusId: (e._source.account || {}).status,

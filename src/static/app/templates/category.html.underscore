@@ -1,9 +1,12 @@
 <div id="container">
 <h1><a href="/"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i> <%- category.get("label") %></h1>
 
-<section id="service-category-services" class="main-left">
-  <ul class="services"><% category.getServices().forEach(function(service) { %><li class="service">
-    <h2><a href="/service/<%- service.get("slug") %>"><%- service.get("label") %></a></h2>
+<div class="main-left">
+<section id="service-category-services">
+  <h2>Services</h2>
+  <ul class="services"><% category.getServices().forEach(function(service) { 
+    if (service.get("catalogueReady")) { %><li class="service">
+    <h3><a href="/service/<%- service.get("slug") %>"><%- service.get("label") %></a></h2>
     <div class="service-links">
       <% if (service.get("homepage")) { %>
         <a href="<%- service.get("homepage") %>" title="Homepage"><i class="fa fa-fw fa-globe"> </i></a>
@@ -18,9 +21,18 @@
     <% } else { %>
       <p><%- service.get("description") %></p>
     <% } %>
-    </li><% }); %>
+    </li><% }}); %>
   </ul>
 </section>
+<section>
+  <h2>Other services</h2>
+  <ul class="services"><% category.getServices().forEach(function(service) { 
+    if (!service.get("catalogueReady")) { %><li class="service">
+      <a href="<%- service.get("serviceInformation") || service.get("homepage") %>"><%- service.get("label") %></a>
+    </li><% }}); %>
+  </ul>
+</section>
+</div>
 <div class="sidebar-right">
 <aside id="service-groups" class="groups">
   <h2 class="hidden">Categories</h2>

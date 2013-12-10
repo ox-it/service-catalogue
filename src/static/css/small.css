@@ -3,3 +3,18 @@ section.groups a {
 	width: 28%;
 
 }
+
+
+aside#service-groups {
+	float: right;
+	max-width: 500px;
+	position: relative;
+}
+
+
+ aside{
+  
+  clear: both;
+  border: 1px solid red;
+  
+}

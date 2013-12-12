@@ -5,7 +5,7 @@ define(['backbone', 'model', 'status',
 	var CategoryView = Backbone.View.extend({
 		template: categoryTemplate,
 		render: function() {
-		    Backbone.trigger('domchange:title', null);
+		    Backbone.trigger('domchange:title', this.model.get('label'));
 		    Backbone.trigger('domchange:status', '200');
 			this.$el.html(this.template({
 				categories: model.categories,

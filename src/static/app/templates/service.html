@@ -11,17 +11,41 @@
   <table class="service-details">
     <tbody><% if (service.get("homepage")) { %>
       <tr>
-        <th>Homepage</th>
+        <th>GO</th>
         <td><a href="<%- service.get("homepage") %>"><%- service.get("homepage") %></a></td>
-      </tr><% } if (service.get("serviceInformation")) { %>
+      </tr>
+      
+      <% } if (service.get("serviceInformation")) { %>
       <tr>
-        <th>More information</th>
+        <th>More info</th>
         <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
       </tr><% } if (service.get("twitter")) { %>
+    
       <tr>
-        <th>Twitter</th>
-        <td><a href="https://twitter.com/<%- service.get("twitter") %>"><i class="fa fa-twitter"> </i><%- service.get("twitter") %></a></td>
+        <th>Support</th>
+        <td>Support info goes here....</td>
+      </tr>
+      
+      
+      
+      
+            <tr>
+        <th>Who's responsible</th>
+        <td>
+          
+            <table id="service-people">
+            
+              <tr><th>Service owner</th><td>name</td></tr>
+             <tr> <th>Business owner</th><td>name</td></tr>
+              <tr><th>Service delivery team </th><td>team</td></tr>
+
+            </table>
+          
+          
+        </td>
       </tr><% } %>
+      
+      
     </tbody>
   </table>
 </section>

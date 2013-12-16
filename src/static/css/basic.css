@@ -15,6 +15,12 @@ h1 {
   
 }
 
+.servCat h1 {
+  
+  margin-right: 4em;
+  
+}
+
 h2 {
   
     font-size: 1.7em;
@@ -378,25 +384,30 @@ table.service-details td {
 
 }
 
-
-table.service-details table.service-people th {
-  width: 30%;
-    color: #4D87C7;
-    font-size: 1.3em;
-    margin-right: 0.5em;
-    text-align: left;
-
+table#service-people {
   
+  margin: 1em;
+}
+
+table.service-details table#service-people th,
+table.service-details table#service-people td{
+
+
+    font-size: 0.8em;
+    padding: 0.3em;
+
+
 }
 
 
-table.service-details table.service-people td {
-    width: 50%;
+table.service-details table#service-people th{
 
 
+text-align: left;
 
-  
+
 }
+
 
 
 table.service-details a{
@@ -420,9 +431,9 @@ color: #002147;
 /* status styling */
 
 
-div.status {
+a.status {
   
-  background-color: #019208;
+  background-color: #999;
   color: #fff;
   font-size: 1em;
   font-weight: bold;
@@ -435,19 +446,19 @@ div.status {
 
 }
 
-div.status.statusUp {
+a.status.statusUp {
 
 background-color: #019208;
 
 }
 
-div.status.statusPartial {
+a.status.statusPartial {
 
 background-color: #F89406;
 }
 
 
-div.status.statusDown {
+a.status.statusDown {
 
 background-color: #B94A48;
 

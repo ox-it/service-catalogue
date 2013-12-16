@@ -56,7 +56,12 @@ section#service-groups {
 	position: relative;	
 }
 
-aside#service-groups .active a, aside#service-groups a:hover {
+
+
+
+aside.groups .active a,
+aside.groups a:hover,
+aside.groups a:focus {
 	background-color: #4D87C7;
 	color: #fff;
 }
@@ -78,7 +83,10 @@ section.groups a {
 	text-decoration: none;
 	display: block;
 	padding: 0.5em;
-	color: #4D87C7;}
+	color: #4D87C7;
+	
+
+	}
 
 section.groups ul {
 	list-style: none;
@@ -105,7 +113,7 @@ section.groups a {
 float: left;
 	color: #fff;
 	padding: 1%;
-	height: 8em;
+	height: 150px;
 }
 
 section#service-groups a {
@@ -128,10 +136,9 @@ section#service-groups a:focus {
 
 
 section#user-groups a {
-
 	
-		background-color: #002147;
-
+	background-color: #002147;
+	font-size: 1.5em;
 }
 
 
@@ -174,7 +181,6 @@ section#service-groups i.fa {
 #services ul {
 	list-style: none;
 	padding: 10px;
-	height: 38em;
 	overflow-y: scroll;
 	border: 1px solid #bfc9d2;
 	border-radius: 3px;
@@ -190,7 +196,7 @@ section#service-groups i.fa {
 #services ul li a{
 
 color:#666;
-text-decoration: underline;
+
 }
 
 
@@ -208,19 +214,7 @@ text-decoration: underline;
 	padding: 0.1em;
 }
 
-.service {
-border-radius: 3px;
-background-color: #ebeff3;
-margin: 0.7em 0px 0px 0px;
-padding: 0.5em 1em;
-color: #444;
 
-}
-
-.service a {
-
-color: #4D87C7;
-}
 
 
 .service a:hover,
@@ -244,17 +238,24 @@ color: #001247;
 	border-radius: 3px;
 		background-color: #4D87C7;
 	color: #fff;
+	display: inline;
 	font-size: 1em;
 	color: #fff;
   padding: 0px 5px;
 	height: 2em;
    
  }
+ 
+  .sidebar-right form input[type="submit"] {
+    
+    margin: 0px;
+  }
+ 
 
 /* text input field */
   .sidebar-right form input#service-search {
    border-color: #bfc9d2;
-   width: 14em;
+   width: 13em;
    	background-color: #e8ecef;
    	color: #333;
  }
@@ -264,7 +265,7 @@ color: #001247;
  #service-search-clear {
    
    padding: 3px 5px;
-   margin-left: 3px;
+   margin-left: 0px;
    
  }
  
@@ -277,10 +278,9 @@ color: #001247;
 	padding: 0.3em;
 }
 
-.service-details th {
-	width: 200px;
-	text-align: right;
-}
+
+
+
 
 .sidebar-right li {
  
@@ -290,8 +290,37 @@ color: #001247;
 }
 
 
+/* category page */
 
-/*  individual s page */
+aside.groups a{
+
+display: block;
+border-radius: 2px;
+padding: 3px;
+	
+}
+
+
+.service a{
+border-radius: 3px;
+background-color: #ebeff3;
+margin: 0.7em 0px 0px 0px;
+padding: 0.5em 1em;
+  display: block;
+color: #4D87C7;
+
+}
+
+
+
+
+.service a:hover,
+.service a:focus {
+	background-color: #4D87C7;
+	color: #fff;
+}
+
+/*  individual service page */
 
 
  .service-description {
@@ -313,7 +342,6 @@ margin-top: 0px;
 
 table.service-details  {
     
-padding-top: 2em;
 clear: both;
   
 
@@ -322,9 +350,9 @@ clear: both;
 table.service-details th,
 table.service-details td {
     
-  float: left;
+/*  float: left;
 
-  
+  */
 
 }
 
@@ -332,11 +360,11 @@ table.service-details td {
 table.service-details th {
     
 
-  width: 36%;
+
   text-align: right;
   font-size: 2em;
   font-weight: normal;
-  padding: 0.2em 2% 0px 0px; 
+  padding: 0.2em ; 
   color: #a0adb9;
   color: #4D87C7;
   line-height: 1em;
@@ -346,9 +374,7 @@ table.service-details th {
 
 table.service-details td {
 
-    margin: 0px 0px 2.5em 0px ; 
-  width: 75%;
-  
+  font-size: 1.5em;
 
 }
 
@@ -376,7 +402,6 @@ table.service-details table.service-people td {
 table.service-details a{
   
   display: inline-block;
-  font-size: 1.8em;
   padding: 0.6em ; 
   margin: 0px 0px 0px -0.5em;
 }

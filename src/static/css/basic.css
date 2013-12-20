@@ -348,6 +348,34 @@ border-left: 30px solid #4D87C7;
 	color: #fff;
 }
 
+#service-category-services .service a{
+  
+  
+  border-right: 30px solid #4D87C7;
+
+
+}
+
+
+
+#service-category-services .service a,
+#service-category-services .service a h2 {
+  
+  	background-color: #4D87C7;
+  	color: #fff;
+  
+}
+
+
+#service-category-services .service a:hover,
+#service-category-services .service a:focus,
+#service-category-services .service a:hover h2,
+#service-category-services .service a:focus h2 {
+  
+  	background-color: #ebeff3;
+  	color: #4D87C7;
+  
+}
 /*  individual service page */
 
 
@@ -371,7 +399,7 @@ margin-top: 0px;
 table.service-details  {
     
 clear: both;
-  
+    font-size: 1.1em;
 
 }
 
@@ -390,7 +418,7 @@ table.service-details th {
 
 
   text-align: right;
-  font-size: 2em;
+    font-size: 1.5em;
   font-weight: normal;
   padding: 0.2em ; 
   color: #a0adb9;
@@ -400,22 +428,49 @@ table.service-details th {
 
 }
 
-table.service-details td {
 
-  font-size: 1.5em;
+
+
+table.service-details tr.who th,
+table.service-details tr.who td {
+
+  padding-top: 1em;
 
 }
 
+table.service-details tr.who th {
+    
+vertical-align: top;
+  
+
+}
+
+table.service-details td {
+
+
+padding-left: 2em;
+color: #333;
+}
+
+
+table.service-details th {
+
+
+
+}
+
+
+
 table#service-people {
   
-  margin: 1em;
+  margin: 0 ;
 }
 
 table.service-details table#service-people th,
 table.service-details table#service-people td{
 
 
-    font-size: 0.8em;
+
     padding: 0.3em;
 
 
@@ -424,7 +479,7 @@ table.service-details table#service-people td{
 
 table.service-details table#service-people th{
 
-
+font-size: 1em;s
 text-align: left;
 
 
@@ -437,6 +492,7 @@ table.service-details a{
   display: inline-block;
   padding: 0.6em ; 
   margin: 0px 0px 0px -0.5em;
+  color: #333;
 }
 
 
@@ -445,6 +501,7 @@ table.service-details a:focus{
   
 background-color: transparent;
 color: #002147;
+text-decoration: underline;
 
 }
 

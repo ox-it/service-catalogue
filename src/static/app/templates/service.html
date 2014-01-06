@@ -14,18 +14,18 @@
   </div>
   <table class="service-details">
     <tbody><% if (service.get("homepage")) { %>
-      <tr>
-        <th>GO</th>
+      <tr class="go" >
+        <th>Go</th>
         <td><a href="<%- service.get("homepage") %>"><%- service.get("homepage") %></a></td>
       </tr>
       
       <% } if (service.get("serviceInformation")) { %>
-      <tr>
+      <tr class="info" >
         <th>More info</th>
         <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
       </tr><% } if (service.get("twitter")) { %>
     
-      <tr>
+      <tr class="support" >
         <th>Support</th>
         <td>Support info goes here....</td>
       </tr>
@@ -33,7 +33,7 @@
       
       
       
-            <tr>
+            <tr class="who" >
         <th>Who's responsible</th>
         <td>
           

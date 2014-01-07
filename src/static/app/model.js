@@ -43,10 +43,13 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 		parse: function(response) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
 				var descriptionHTML = e._source.descriptionHTML || ("<div>" + _.escape(e._source.description || '') + "</div>");
-				var teaser = e._source.teaser;
+				var teaser = "<div>" + _.escape(e._source.teaser) + "</div>";
 				if (!teaser && descriptionHTML) {
 					var $teaser = $(descriptionHTML);
-					Cutter.run($teaser.get(0), $teaser.get(0), 20);
+					var cutter = new Cutter();
+					cutter.createViewMore = function() { this.oViewMore = document.createTextNode(''); };
+					cutter.applyTo($teaser.get(0)).setTarget($teaser.get(0)).setWords(20);
+					cutter.init();
 					teaser = $teaser.html();
 				}
 				return {

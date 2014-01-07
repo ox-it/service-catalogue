@@ -65,7 +65,8 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					homepage: (e._source.homepage || {}).uri,
 					weblog: (e._source.weblog || {}).uri,
 					teaser: teaser,
-					serviceInformation: (e._source.serviceInformation || {}).uri
+					serviceInformation: (e._source.serviceInformation || {}).uri,
+					serviceLevelDefinition: (e._source.serviceLevelDefinition || {}).uri
 				};
 			}), function(e) {
 				return e.label.toLowerCase();

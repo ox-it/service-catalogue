@@ -5,25 +5,13 @@
 <section id="service-category-services">
   <h2>Services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (service.get("catalogueReady")) { %>
-    <li class="service" resource="<%- service.get('uri') %>">
-      <a property="foaf:primaryTopicOf" href="/service/<%- service.get("slug") %>">
-        <h2 property="rdfs:label"><%- service.get("label") %></h2>
-        <div class="teaser-text"><% if (service.get("teaser")) { %>
-          <p><%= service.get("teaser") %></p>
-        <% } %></div>  
-      </a>
-    </li><% }}); %>
+    if (service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service}) %><% }}); %>
   </ul>
 </section>
 <section class="other">
   <h2>Additional services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (!service.get("catalogueReady")) { %>
-    <li class="service" resource="<%- service.get('uri') %>"><% {
-      var url = service.get("serviceInformation") || service.get("homepage") || service.get("serviceLevelDefinition");
-      if (url) { %><a property="foaf:primaryTopicOf" href="<%- url %>"><% } %><span property="rdfs:label"><%- service.get("label") %></span><% if (url) { %></a><% }} %>
-    </li><% }}); %>
+    if (!service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service}) %><% }}); %>
   </ul>
 </section>
 </div>

@@ -1,0 +1,10 @@
+<li class="service <%- (service.get("catalogueReady") ? "catalogue-ready-service" : "non-catalogue-ready-service") %>" resource="<%- service.get('uri') %>">
+      <a property="foaf:primaryTopicOf" href="<%- service.get("url") %>">
+        <h2 property="rdfs:label"><%- service.get("label") %></h2>
+        <% if (service.get("catalogueReady") && service.get("teaser")) { %>
+        <div class="teaser-text">
+          <%= service.get("teaser") %>
+        </div>
+    <% } %>
+  </a>
+</li>

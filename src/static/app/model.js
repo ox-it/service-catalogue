@@ -52,10 +52,11 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					cutter.init();
 					teaser = $teaser.html();
 				}
-				return {
+				var service = {
 					label: e._source.label,
 					slug: e._source.notation.service,
 					uri: e._source.uri,
+					url: "/service/" + e._source.notation.service,
 					description: e._source.description,
 					description_html: descriptionHTML,
 					catalogueReady: e._source.catalogueReady,
@@ -68,6 +69,9 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					serviceInformation: (e._source.serviceInformation || {}).uri,
 					serviceLevelDefinition: (e._source.serviceLevelDefinition || {}).uri
 				};
+				if (!service.catalogueReady)
+					service.url = service.serviceInformation || service.homepage || service.serviceLevelDefinition;
+				return service;
 			}), function(e) {
 				return e.label.toLowerCase();
 			});

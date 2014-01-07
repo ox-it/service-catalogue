@@ -21,6 +21,12 @@ h1 {
   
 }
 
+.non-catalogue-ready-service h2 {
+	font-size: 100%;
+	margin: 0;
+	font-weight: normal;
+}
+
 h2 {
   
     font-size: 1.7em;
@@ -247,7 +253,7 @@ text-decoration: underline;
 color: #001247;  
 }
 
-.service h2 {
+.catalogue-ready-service h2 {
 	margin: 0.3em 0px 0.7em 0px;
 }
 
@@ -328,15 +334,14 @@ padding: 3px;
 .service a{
 border-radius: 3px;
 background-color: #ebeff3;
-margin: 0.7em 0px 0px 0px;
 padding: 0.5em 1em;
   display: block;
 color: #4D87C7;
 
 border-left: 30px solid #4D87C7;
+  margin: 0.7em 0px 0px 0px;
 
 }
-
 
 
 

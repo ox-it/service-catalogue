@@ -17,18 +17,21 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 		model: Category,
 		url: "https://data.ox.ac.uk/search/?format=json&q=scheme.uri:%22https://id.it.ox.ac.uk/service-category%22&page_size=20",
 		parse: function(response) {
-			return _.map(response.hits.hits, function(e) {
+			return _.sortBy(_.map(response.hits.hits, function(e) {
 				return {
 					label: e._source.label,
 					fontAwesome: e._source.fontAwesome,
 					slug: e._source.notation.serviceCategory,
 					teaser: e._source.teaser,
 					broader: e._source.broader[0].uri,
+					sortKey: e._source.sortKey,
 					featured: e._source.featured ? _.map(e._source.featured, function(e) {
 						return e.uri;
 					}) : [],
 					uri: e._source.uri
 				};
+			}), function(e) {
+				return e.sortKey;
 			});
 		}
 	});

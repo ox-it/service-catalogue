@@ -5,7 +5,7 @@
 <section id="service-category-services">
   <h2>Services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (service.get("catalogueReady")) { %><li class="service">
+    if (service.get("catalogueReady")) { %><li class="service" data-uri="<%- service.get('uri') %>">
     <a href="/service/<%- service.get("slug") %>">
     
     <h2><%- service.get("label") %></h2>
@@ -22,9 +22,9 @@
   </ul>
 </section>
 <section class="other">
-  <h2>Other services</h2>
+  <h2>Additional services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (!service.get("catalogueReady")) { %><li class="service">
+    if (!service.get("catalogueReady")) { %><li class="service" data-uri="<%- service.get('uri') %>">
       <a href="<%- service.get("serviceInformation") || service.get("homepage") %>"><%- service.get("label") %></a>
     </li><% }}); %>
   </ul>
@@ -35,7 +35,7 @@
   <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(otherCategory) {
            if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %>
-    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
+    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %> data-uri="<%- category.get('uri') %>">
       <a href="/category/<%- otherCategory.get("slug") %>">
         <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
         <%- otherCategory.get("label") %>
@@ -47,7 +47,7 @@
   <h2 class="hidden">User groups</h2>
   <ul><% categories.forEach(function(otherCategory) {
            if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %>
-    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %>>
+    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %> data-uri="<%- category.get('uri') %>">
       <a href="/category/<%- otherCategory.get("slug") %>">
         <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
         <%- otherCategory.get("label") %>

@@ -1,4 +1,4 @@
-define(['backbone', 'underscore'], function(Backbone, _) {
+define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
 	var Category = Backbone.Model.extend({
 		idAttribute: "slug",
 		getServices: function() {
@@ -39,18 +39,26 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 		url: "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
 		parse: function(response) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
+				var descriptionHTML = e._source.descriptionHTML || ("<div>" + _.escape(e._source.description || '') + "</div>");
+				var teaser = e._source.teaser;
+				if (!teaser && descriptionHTML) {
+					var $teaser = $(descriptionHTML);
+					Cutter.run($teaser.get(0), $teaser.get(0), 20);
+					teaser = $teaser.html();
+				}
 				return {
 					label: e._source.label,
 					slug: e._source.notation.service,
 					uri: e._source.uri,
 					description: e._source.description,
-					description_html: e._source.descriptionHTML,
+					description_html: descriptionHTML,
 					catalogueReady: e._source.catalogueReady,
 					subject: _.map(e._source.subject, function(e) { return e.uri; }),
 					twitter: (e._source.account || {}).twitter,
 					statusId: (e._source.account || {}).status,
 					homepage: (e._source.homepage || {}).uri,
 					weblog: (e._source.weblog || {}).uri,
+					teaser: teaser,
 					serviceInformation: (e._source.serviceInformation || {}).uri
 				};
 			}), function(e) {

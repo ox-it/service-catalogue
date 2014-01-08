@@ -6,6 +6,9 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 			return services.filter(function(service) {
 				return _.contains(service.get("subject"), uri); 
 			});
+		},
+		getFeaturedServices: function() {
+			return _.map(this.get('featured'), function(uri) { return services.findWhere({"uri": uri}); });
 		}
 	});
 
@@ -54,6 +57,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 				}
 				var service = {
 					label: e._source.label,
+					shortLabel: e._source.shortLabel,
 					slug: e._source.notation.service,
 					uri: e._source.uri,
 					url: "/service/" + e._source.notation.service,

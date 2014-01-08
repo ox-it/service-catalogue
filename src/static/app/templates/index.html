@@ -4,24 +4,25 @@
 <section id="service-groups" class="groups">
   <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(category) {
-           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %><li>
+           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %><li class="service-group group"><div class="group-inner">
       <a href="/category/<%- category.get("slug") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
         <%- category.get("label") %>
-       
-      </a>
-    </li><% }}); %>
+      </a><% if (category.get('featured').length) { %>
+        <ul class="featured-services"><% _.forEach(category.getFeaturedServices(), function(service) {
+          %><li><a href="<%- service.get("url") %>"><%- service.get("shortLabel") || service.get("label") %></a></li><% }); %></ul>
+    </div><% } %></li><% }}); %>
   </ul>
 </section>
 <section id="user-groups" class="groups">
   <h2 class="hidden">User groups</h2>
   <ul><% categories.forEach(function(category) {
-           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %><li>
+           if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %><li class="user-group group"><div class="group-inner">
       <a href="/category/<%- category.get("slug") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
         <%- category.get("label") %>
       </a>
-    </li><% }}); %>
+    </div></li><% }}); %>
   </ul>
 </section>
 </div>

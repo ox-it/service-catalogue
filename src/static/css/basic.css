@@ -96,40 +96,75 @@ aside.groups a:focus {
 	color: #fff;
 }
 
-
-
-
-aside#service-groups h2{
-	top: -9000000px;
-	position: absolute;
-}
-
 aside ul {
 	list-style: none;
 	padding-left: 0;
 }
 
-section.groups a {
-	text-decoration: none;
-	display: block;
-	padding: 0.5em;
-	color: #4D87C7;
-	
-
-	}
-
-section.groups ul {
-	list-style: none;
+.groups > ul {
 	padding-left: 0;
 }
 
-section.groups li {
-	
-	
+li.group {
+	height: 150px;
+	width: 33%;
+	margin: 0 0 10px 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
 }
 
-section.groups a {
-	
+ul.featured-services {
+	margin-top: 1em;
+	margin-left: 5em;
+	padding: 5px;
+	background-color: #999;
+	border-radius: 5px;
+	cursor: default;
+}
+
+ul.featured-services a {
+	font-size: 80%;
+	color: #fff;
+	text-decoration: underline;
+}
+
+div.group-inner {
+	display: block;
+	text-decoration: none;
+	margin: 0 10px 0 0;
+	padding: 10px;
+	position: relative;
+	border-radius: 3px;
+	color: #fff;
+	height: 130px;
+	cursor: pointer;
+}
+
+li.service-group div.group-inner {
+	background-color: #435870;
+}
+li.user-group div.group-inner {
+	background-color: #002147;
+}
+li.service-group div.group-inner:hover,
+li.service-group div.group-inner:focus {
+	background-color: #002147;
+}
+li.user-group div.group-inner:hover,
+li.user-group div.group-inner:focus {
+	background-color: #435870;
+}
+
+
+div.group-inner > a {
+	color: #fff;
+}
+
+/*
+section.groups li.group {
+	text-decoration: none;
+	display: block;
 	
 	margin: 1%;
 	background-color: #435870;
@@ -139,52 +174,18 @@ section.groups a {
 	vertical-align: middle;
 	text-decoration: none;
 	border-radius: 3px;
-	width: 90%;
-float: left;
+	width: 30%;
+	float: left;
 	color: #fff;
 	padding: 1%;
 	height: 150px;
-}
 
-section#service-groups a {
-	
-	
-	background-color: #435870;
+	}
+*/
 
-}
-
-
-section#service-groups a:hover,
-section#service-groups a:focus {
-	
-	
-	background-color: #002147;
-
-}
-
-
-
-
-section#user-groups a {
-	
-	background-color: #002147;
+li.user-group a {
 	font-size: 1.5em;
 }
-
-
-
-
-section#user-groups a:hover,
-section#user-groups a:focus {
-	
-	
-	background-color: #435870;
-
-}
-
-
-
-
 
 section#service-groups i.fa {
 	position: absolute;
@@ -283,12 +284,12 @@ color: #001247;
  
 
 /* text input field */
-  .sidebar-right form input#service-search {
+.sidebar-right form input#service-search {
    border-color: #bfc9d2;
    width: 13em;
    	background-color: #e8ecef;
    	color: #333;
- }
+}
  
  
  /* clear button */
@@ -548,4 +549,18 @@ background-color: #B94A48;
 
 }
 
+.featured-services {
+	list-style: none;
+}
 
+.featured-services li {
+	display: inline;
+}
+
+.featured-services li:before {
+	content: ', ';
+}
+
+.featured-services li:first-child:before {
+	content: '';
+}

@@ -22,6 +22,14 @@ define(['backbone', 'jquery', 'underscore',
 				this.filterServices();
 				ev.preventDefault();
 			}, this));
+			this.$el.find('.group-inner').each(function(i, e) {
+				$(this).click(function(ev) {
+					if (ev.target == e) {
+						$(this).children('a').click();
+						ev.preventDefault(true);
+					}
+				});
+			});
 		},
 		currentFilterCallback: null,
 		filterServices: function() {

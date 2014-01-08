@@ -331,7 +331,7 @@ padding: 3px;
 }
 
 
-.service a{
+.category-view .service a{
 border-radius: 3px;
 background-color: #ebeff3;
 padding: 0.5em 1em;
@@ -345,15 +345,15 @@ border-left: 30px solid #4D87C7;
 
 
 
-.service a:hover,
-.service a:focus, 
-.service a:hover h2,
-.service a:focus h2{
+.category-view .service a:hover,
+.category-view .service a:focus, 
+.category-view .service a:hover h2,
+.category-view .service a:focus h2{
 	background-color: #4D87C7;
 	color: #fff;
 }
 
-#service-category-services .service a{
+.category-view .catalogue-ready-service a{
   
   
   border-right: 30px solid #4D87C7;

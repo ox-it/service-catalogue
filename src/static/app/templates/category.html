@@ -1,17 +1,17 @@
 <div id="container">
 <h1><a href="/"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i> <%- category.get("label") %></h1>
 
-<div class="main-left">
-<section id="service-category-services">
+<div class="main-left category-view">
+<section>
   <h2>Services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service}) %><% }}); %>
+    if (service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service, tag: 'h2'}) %><% }}); %>
   </ul>
 </section>
-<section class="other">
+<section>
   <h2>Additional services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (!service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service}) %><% }}); %>
+    if (!service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service, tag: 'h2'}) %><% }}); %>
   </ul>
 </section>
 </div>

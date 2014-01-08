@@ -1,7 +1,7 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'tpl!templates/index'],
+        'model', 'tpl!templates/index', 'tpl!templates/service-in-list'],
         function(Backbone, $, _,
-        		model, indexTemplate) {
+        		model, indexTemplate, serviceInListTemplate) {
 	var IndexView = Backbone.View.extend({
 		template: indexTemplate,
 		render: function() {
@@ -10,7 +10,8 @@ define(['backbone', 'jquery', 'underscore',
 
 			this.$el.html(this.template({
 				categories: model.categories,
-				services: model.services
+				services: model.services,
+				serviceInListTemplate: serviceInListTemplate
 			}));
 
 			this.$serviceSearch = this.$el.find('#service-search');

@@ -32,11 +32,7 @@
     <input id="service-search-clear" type="reset" value="&times;">
     <input type="submit" value="Go!">
   </form>
-  <ul><% services.forEach(function(service) { %><li data-slug="<%- service.get("slug") %>" data-label="<%- service.get("label") %>">
-      <a href="/service/<%- service.get("slug") %>">
-        <%- service.get("label") %>
-      </a>
-    </li><% }); %>
+  <ul><% services.forEach(function(service) { %><%= serviceInListTemplate({service: service, includeTeaser: false, tag: 'span'}) %><% }); %>
   </ul>
 </section>
 </div>

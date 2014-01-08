@@ -24,12 +24,17 @@
         <th>More info</th>
         <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
       </tr><% } if (service.get("twitter")) { %>
-    
+      <tr class="twitter" >
+        <th>Twitter</th>
+        <td><a href="https://twitter.com/<%- service.get("twitter") %>"><i class="fa fa-twitter"> </i><%- service.get("twitter") %></td>
+      </tr>
+
+      <% } %>
       <tr class="support" >
         <th>Support</th>
         <td>Support info goes here....</td>
       </tr>
-      
+      <% } %>
       
       
       
@@ -38,16 +43,18 @@
         <td>
           
             <table id="service-people">
-            
-              <tr><th>Service owner</th><td>name</td></tr>
-             <tr> <th>Business owner</th><td>name</td></tr>
-              <tr><th>Service delivery team </th><td>team</td></tr>
-
+            <% if (service.get('serviceOwner').label) { %> 
+              <tr><th>Service owner</th><td><%- service.get('serviceOwner').label %></td></tr>
+            <% } if (service.get('serviceBusinessOwner').label) { %> 
+             <tr> <th>Business owner</th><td><%- service.get('serviceBusinessOwner').label %></td></tr>
+            <% } if (service.get('serviceTeam').label) { %> 
+              <tr><th>Service delivery team </th><td><%- service.get('serviceTeam').label %></td></tr>
+            <% } %>
             </table>
           
           
         </td>
-      </tr><% } %>
+      </tr>
       
       
     </tbody>

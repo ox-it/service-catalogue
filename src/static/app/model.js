@@ -70,6 +70,9 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					homepage: (e._source.homepage || {}).uri,
 					weblog: (e._source.weblog || {}).uri,
 					teaser: teaser,
+					serviceTeam: e._source.serviceTeam || {},
+					serviceOwner: e._source.serviceOwner || {},
+					serviceBusinessOwner: e._source.serviceBusinessOwner || {},
 					serviceInformation: (e._source.serviceInformation || {}).uri,
 					serviceLevelDefinition: (e._source.serviceLevelDefinition || {}).uri
 				};

@@ -26,6 +26,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					fontAwesome: e._source.fontAwesome,
 					slug: e._source.notation.serviceCategory,
 					teaser: e._source.teaser,
+					definition: e._source.definition,
 					broader: e._source.broader[0].uri,
 					sortKey: e._source.sortKey,
 					featured: e._source.featured ? _.map(e._source.featured, function(e) {

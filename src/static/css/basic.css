@@ -440,7 +440,7 @@ table.service-details th {
 table.service-details tr.who th,
 table.service-details tr.who td {
 
-  padding-top: 1em;
+  padding-top: 0.5em;
 
 }
 
@@ -469,7 +469,7 @@ table.service-details th {
 
 table#service-people {
   
-  margin: 0 ;
+  margin: 3px  0 0 0 ;
 }
 
 table.service-details table#service-people th,

@@ -30,10 +30,10 @@
       </tr>
 
       <% } %>
-      <tr class="support" >
+      <tr class="with-sub-details" >
         <th>Support</th>
         <td>
-          <table id="service-contact">
+          <table class="service-sub-details">
             <% if (service.get('contactForm')) { %>
               <tr><th>Contact form</th><td><a href="<%- service.get('contactForm') %>"><%- service.get('contactForm') %></a></td></tr>
             <% } if (service.get('contactEmail')) { %>
@@ -45,11 +45,11 @@
         </td>
       </tr>
 
-      <tr class="who" >
+      <tr class="with-sub-details" >
         <th>Who's responsible</th>
         <td>
           
-            <table id="service-people">
+            <table class="service-sub-details">
             <% if (service.get('serviceOwner').label) { %>
               <tr><th>Service owner</th><td><%- service.get('serviceOwner').label %></td></tr>
             <% } if (service.get('serviceBusinessOwner').label) { %>

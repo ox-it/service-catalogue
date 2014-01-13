@@ -1,4 +1,4 @@
-<li class="service <%- (service.get("catalogueReady") ? "catalogue-ready-service" : "non-catalogue-ready-service") %>" resource="<%- service.get('uri') %>" data-slug="<%- service.get('slug') %>">
+<li class="service <%- (service.get("catalogueReady") ? "catalogue-ready-service" : "non-catalogue-ready-service") %>" resource="<%- service.get('uri') %>" data-slug="<%- service.get('slug') %>" data-label="<%- service.get('label') %>">
       <a property="foaf:primaryTopicOf" href="<%- service.get("url") %>">
         <<%- tag %> property="rdfs:label"><%- service.get("label") %></<%- tag %>>
         <% if (!(typeof includeTeaser != 'undefined' && includeTeaser == false) && service.get("catalogueReady") && service.get("teaser")) { %>

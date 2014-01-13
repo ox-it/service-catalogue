@@ -32,7 +32,17 @@
       <% } %>
       <tr class="support" >
         <th>Support</th>
-        <td>Support info goes here....</td>
+        <td>
+          <table id="service-contact">
+            <% if (service.get('contactForm')) { %>
+              <tr><th>Contact form</th><td><a href="<%- service.get('contactForm') %>"><%- service.get('contactForm') %></a></td></tr>
+            <% } if (service.get('contactEmail')) { %>
+              <tr><th>Email</th><td><a href="<%- service.get('contactEmail') %>"><%- service.get('contactEmail').substr(7) %></a></td></tr>
+            <% } if (service.get('contactVoice')) { %>
+              <tr><th>Telephone</th><td><a href="<%- service.get('contactVoice') %>"><%- service.get('contactVoiceExtension') || service.get('contactVoice') %></a></td></tr>
+            <% } %>
+          </table>
+        </td>
       </tr>
 
       <tr class="who" >

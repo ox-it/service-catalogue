@@ -75,7 +75,11 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					serviceOwner: e._source.serviceOwner || {},
 					serviceBusinessOwner: e._source.serviceBusinessOwner || {},
 					serviceInformation: (e._source.serviceInformation || {}).uri,
-					serviceLevelDefinition: (e._source.serviceLevelDefinition || {}).uri
+					serviceLevelDefinition: (e._source.serviceLevelDefinition || {}).uri,
+					contactForm: (e._source.contact || {}).contactForm,
+					contactEmail: (e._source.contact || {}).email,
+					contactVoice: (e._source.contact || {}).voice,
+					contactVoiceExtension: (e._source.contact || {}).voiceExtension
 				};
 				if (!service.catalogueReady)
 					service.url = service.serviceInformation || service.homepage || service.serviceLevelDefinition;

@@ -90,7 +90,7 @@ define(["jquery", "backbone",
 	$(document).on('click', "a[href^='" + model.base + "']", function(event) {
 		var href = $(event.currentTarget).attr('href');
 		try{
-			app_router.navigate(href, {trigger: true});
+			app_router.navigate(href.substr(model.base.length), {trigger: true});
 		} catch (e) {
 			console.log(e);
 		}

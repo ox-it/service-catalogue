@@ -46,7 +46,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 	
 	var Services = Backbone.Collection.extend({
 		model: Service,
-		url: $('body'.attr('data-sevices-url') || "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
+		url: $('body').attr('data-sevices-url') || "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
 		parse: function(response) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
 				var descriptionHTML = e._source.descriptionHTML || ("<div>" + _.escape(e._source.description || '') + "</div>");

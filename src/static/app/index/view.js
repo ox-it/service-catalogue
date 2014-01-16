@@ -11,7 +11,8 @@ define(['backbone', 'jquery', 'underscore',
 			this.$el.html(this.template({
 				categories: model.categories,
 				services: model.services,
-				serviceInListTemplate: serviceInListTemplate
+				serviceInListTemplate: serviceInListTemplate,
+				base: model.base
 			}));
 
 			this.$serviceSearch = this.$el.find('#service-search');

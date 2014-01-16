@@ -8,7 +8,8 @@ define(['backbone', 'jquery', 'underscore',
 		        Backbone.trigger('domchange:title', this.model.get('label'));
 		        Backbone.trigger('domchange:status', '200');
 			this.$el.html(this.template({
-				service: this.model
+				service: this.model,
+				base: model.base
 			}));
 		}
 	});

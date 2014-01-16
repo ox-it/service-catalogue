@@ -34,6 +34,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					featured: e._source.featured ? _.map(e._source.featured, function(e) {
 						return e.uri;
 					}) : [],
+					url: base + 'category/' + e._source.notation.serviceCategory,
 					uri: e._source.uri
 				};
 			}), function(e) {
@@ -94,6 +95,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 	var services = new Services();
 	
 	return {
+		base: base,
 		Category: Category,
 		categories: categories,
 		Service: Service,

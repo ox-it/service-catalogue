@@ -5,7 +5,7 @@
   <h2 class="hidden">Categories</h2>
   <ul><% categories.forEach(function(category) {
            if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %><li class="service-group group"><div class="group-inner">
-      <a href="/category/<%- category.get("slug") %>">
+      <a href="<%- category.get("url") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
         <%- category.get("label") %>
       </a><% if (false && category.get('featured').length) { %>
@@ -18,7 +18,7 @@
   <h2 class="hidden">User groups</h2>
   <ul><% categories.forEach(function(category) {
            if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %><li class="user-group group"><div class="group-inner">
-      <a href="/category/<%- category.get("slug") %>">
+      <a href="<%- category.get("url") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
         <%- category.get("label") %>
       </a><!--
@@ -29,7 +29,7 @@
 </div>
 <section id="services" class="sidebar-right">
   <h2 class="hidden">Services</h2>
-  <form method="get" action="/search">
+  <form method="get" action="<%- base %>search">
     <input id="service-search" name="q" placeholder="Search services" autocomplete="off">
     <input id="service-search-clear" type="reset" value="&times;">
     <input type="submit" value="Go!">

@@ -14,7 +14,8 @@ define(['backbone', 'model', 'status',
 				slug: this.model.get("slug"),
 				status: status,
 				statusTemplate: statusTemplate,
-				serviceInListTemplate: serviceInListTemplate
+				serviceInListTemplate: serviceInListTemplate,
+				base: model.base
 			}));
 		}
 	});

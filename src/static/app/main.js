@@ -1,20 +1,20 @@
-define(['require', "jquery", "backbone",
+define(["jquery", "backbone",
         "model", "status",
         "index/view", "category/view", "service/view", "not-found/view"],
-  function(require, $, Backbone,
+  function($, Backbone,
 		   model, status,
 		   IndexView, CategoryView, ServiceView, NotFoundView) {
     
-    if (!window.console) console = {log: function() {}};
+	if (!window.console) console = {log: function() {}};
 
-	var routes = {};
-	routes[model.base] = 'index';
-	routes[model.base + 'category/:slug'] = 'category';
-	routes[model.base + 'service/:slug'] = 'service';
-	routes[model.base + '*p'] = 'not-found';
     
 	var AppRouter = Backbone.Router.extend({
-		routes: routes
+		routes: {
+			'': 'index',
+			'category/:slug': 'category',
+			'service/:slug': 'service',
+			'*p': 'not-found'
+		}
 	});
 
 	var app_router = new AppRouter();

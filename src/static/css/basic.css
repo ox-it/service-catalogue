@@ -48,6 +48,7 @@ h4{
 .hidden {
 	text-indent: -9999px;
 	position: absolute;
+	z-index: -10;
 }
 
 a, a:link, a:visited {

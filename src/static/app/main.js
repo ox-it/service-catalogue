@@ -9,10 +9,10 @@ define(['require', "jquery", "backbone",
     
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			"": "index",
-			"category/:slug": "category",
-			"service/:slug": "service",
-			"*p": "not-found"
+			model.base: "index",
+			model.base + "category/:slug": "category",
+			model.base + "service/:slug": "service",
+			model.base + "*p": "not-found"
 		}
 	});
 
@@ -86,7 +86,7 @@ define(['require', "jquery", "backbone",
 		app_router.navigate.apply(app_router, arguments);
 	});
 	
-	$(document).on('click', "a[href^='/']", function(event) {
+	$(document).on('click', "a[href^='" + model.base + "']", function(event) {
 		var href = $(event.currentTarget).attr('href');
 		try{
 			app_router.navigate(href, {trigger: true});

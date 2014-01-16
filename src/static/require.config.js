@@ -1,5 +1,5 @@
 var require = {
-    baseUrl: "./static/app",
+    baseUrl: "/services/static/app",
     paths: {
          "backbone": "../lib/backbone-min",
          "underscore": "../lib/underscore-min",

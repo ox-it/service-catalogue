@@ -1,4 +1,6 @@
 define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
+	var base = (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/' : $('body').attr('data-site-root');
+
 	var Category = Backbone.Model.extend({
 		idAttribute: "slug",
 		getServices: function() {

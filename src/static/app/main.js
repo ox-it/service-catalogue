@@ -102,7 +102,7 @@ define(['require', "jquery", "backbone",
         model.services.fetch().complete(_.bind(function() {
         	Backbone.history.start({
         		pushState: true,
-			root: (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/' : $('body').attr('data-site-root')
+			root: model.base,
         	});
         	status.registerForStatusUpdates();
         	status.updateStatus();

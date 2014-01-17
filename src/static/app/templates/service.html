@@ -15,13 +15,13 @@
   </div>
   <table class="service-details">
     <tbody><% if (service.get("homepage")) { %>
-      <tr class="go" >
+      <tr>
         <th>Go</th>
         <td><a href="<%- service.get("homepage") %>"><%- service.get("homepage") %></a></td>
       </tr>
       
       <% } if (service.get("serviceInformation")) { %>
-      <tr class="info" >
+      <tr>
         <th>More info</th>
         <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
       </tr><% } if (false && service.get("twitter")) { %>

@@ -56,6 +56,7 @@ h4{
 	text-indent: -9999px;
 	position: absolute;
 	z-index: -10;
+	border: none;
 }
 
 a, a:link, a:visited {
@@ -428,8 +429,9 @@ table.service-details td {
 
 
 table.service-details th, table.service-details td {
-	padding-top: 30px;
+	border: none;
 	vertical-align: bottom;
+	padding: 30px 0 0 0;
 }
 
 table.service-details th {
@@ -438,13 +440,12 @@ table.service-details th {
 	font-weight: normal;
 	color: #a0adb9;
 	color: #4D87C7;
-	line-height: 1em;
 }
 
 
 tr.service-details-group-item th, tr.service-details-group-item td {
-	margin-top: 0;
 	padding-top: 0;
+	padding-bottom: 0;
 }
 
 tr.service-details-group-item th {

@@ -434,12 +434,17 @@ table.service-details th, table.service-details td {
 	padding: 30px 0 0 0;
 }
 
+table.service-details tr:first-child th, table.service-details tr:first-child td {
+	padding-top: 10px;
+}
+
 table.service-details th {
 	text-align: right;
 	font-size: 1.5em;
 	font-weight: normal;
 	color: #a0adb9;
 	color: #4D87C7;
+	line-height: 1em;
 }
 
 
@@ -561,4 +566,8 @@ background-color: #B94A48;
 
 .featured-services li:first-child:before {
 	content: '';
+}
+
+#services ul {
+	height: 640px;
 }

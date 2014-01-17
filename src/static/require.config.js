@@ -1,5 +1,5 @@
 var require = {
-    baseUrl: "/services/static/app",
+    baseUrl: (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/static/app' : "/services/static/app",
     paths: {
          "backbone": "../lib/backbone-min",
          "underscore": "../lib/underscore-min",

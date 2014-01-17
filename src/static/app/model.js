@@ -1,5 +1,5 @@
 define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
-	var base = (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/' : $('body').attr('data-site-root');
+	var base = (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/' : $('.services-config').attr('data-site-root');
 
 	var Category = Backbone.Model.extend({
 		idAttribute: "slug",
@@ -20,7 +20,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 
 	var Categories = Backbone.Collection.extend({
 		model: Category,
-		url: $('body').attr('data-categories-url') || 'https://data.ox.ac.uk/search/?format=json&q=scheme.uri:%22https://id.it.ox.ac.uk/service-category%22&page_size=20',
+		url: $('.services-config').attr('data-categories-url') || 'https://data.ox.ac.uk/search/?format=json&q=scheme.uri:%22https://id.it.ox.ac.uk/service-category%22&page_size=20',
 		parse: function(response) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
 				return {
@@ -46,7 +46,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 	
 	var Services = Backbone.Collection.extend({
 		model: Service,
-		url: $('body').attr('data-services-url') || "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
+		url: $('.services-config').attr('data-services-url') || "https://data.ox.ac.uk/search/?format=json&q=*&type=service&filter.organizationPart.uri=http://oxpoints.oucs.ox.ac.uk/id/31337175&page_size=3000",
 		parse: function(response) {
 			return _.sortBy(_.map(response.hits.hits, function(e) {
 				var descriptionHTML = e._source.descriptionHTML || ("<div>" + _.escape(e._source.description || '') + "</div>");

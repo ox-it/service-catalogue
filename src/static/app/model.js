@@ -1,5 +1,5 @@
 define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
-	var base = (document.location.hostname == 'ox-it.github.io') ? '/service-catalogue/src/' : $('.services-config').attr('data-site-root');
+	var base = $('.services-config').attr('data-site-root') || '/service-catalogue/src/';
 
 	var Category = Backbone.Model.extend({
 		idAttribute: "slug",

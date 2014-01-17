@@ -427,43 +427,33 @@ table.service-details td {
 }
 
 
+table.service-details th, table.service-details td {
+	padding-top: 30px;
+	vertical-align: bottom;
+}
+
 table.service-details th {
-    
-
-
-  text-align: right;
-    font-size: 1.5em;
-  font-weight: normal;
-  padding: 0.2em ; 
-  color: #a0adb9;
-  color: #4D87C7;
-  line-height: 1em;
-  
-
+	text-align: right;
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #a0adb9;
+	color: #4D87C7;
+	line-height: 1em;
 }
 
 
-
-
-table.service-details tr.with-sub-details th,
-table.service-details tr.with-sub-details td {
-
-  padding-top: 0.5em;
-
+tr.service-details-group-item th, tr.service-details-group-item td {
+	margin-top: 0;
+	padding-top: 0;
 }
 
-table.service-details tr.with-sub-details th {
-    
-vertical-align: top;
-  
-
+tr.service-details-group-item th {
+	font-size: 100%;
 }
 
 table.service-details td {
-
-
-padding-left: 2em;
-color: #333;
+	padding-left: 2em;
+	color: #333;
 }
 
 
@@ -505,7 +495,6 @@ table.service-details a{
   
   display: inline-block;
   /*padding: 0.6em ;*/ 
-  margin: 0px 0px 0px -0.5em;
   color: #333;
 }
 

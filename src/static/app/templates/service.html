@@ -31,39 +31,28 @@
       </tr>
 
       <% } %>
-      <tr class="with-sub-details" >
+      <tr class="service-details-group-header">
         <th>Support</th>
-        <td>
-          <table class="service-sub-details">
-            <% if (service.get('contactForm')) { %>
-              <tr><th>Contact form</th><td><a href="<%- service.get('contactForm') %>"><%- service.get('contactForm') %></a></td></tr>
-            <% } if (service.get('contactEmail')) { %>
-              <tr><th>Email</th><td><a href="<%- service.get('contactEmail') %>"><%- service.get('contactEmail').substr(7) %></a></td></tr>
-            <% } if (service.get('contactVoice')) { %>
-              <tr><th>Telephone</th><td><a href="<%- service.get('contactVoice') %>"><%- service.get('contactVoiceExtension') || service.get('contactVoice') %></a></td></tr>
-            <% } %>
-          </table>
-        </td>
       </tr>
-
-      <tr class="with-sub-details" >
-        <th>Who's responsible</th>
-        <td>
-          
-            <table class="service-sub-details">
-            <% if (service.get('serviceOwner').label) { %>
-              <tr><th>Service owner</th><td><%- service.get('serviceOwner').label %></td></tr>
-            <% } if (service.get('serviceBusinessOwner').label) { %>
-             <tr> <th>Business owner</th><td><%- service.get('serviceBusinessOwner').label %></td></tr>
-            <% } if (service.get('serviceTeam').label) { %>
-              <tr><th>Service delivery team </th><td><%- service.get('serviceTeam').label %></td></tr>
-            <% } %>
-            </table>
-          
-          
-        </td>
-      </tr>
+      <% if (service.get('contactForm')) { %>
+        <tr class="service-details-group-item"><th>Contact form</th><td><a href="<%- service.get('contactForm') %>"><%- service.get('contactForm') %></a></td></tr>
+      <% } if (service.get('contactEmail')) { %>
+        <tr class="service-details-group-item"><th>Email</th><td><a href="<%- service.get('contactEmail') %>"><%- service.get('contactEmail').substr(7) %></a></td></tr>
+      <% } if (service.get('contactVoice')) { %>
+        <tr class="service-details-group-item"><th>Telephone</th><td><a href="<%- service.get('contactVoice') %>"><%- service.get('contactVoiceExtension') || service.get('contactVoice') %></a></td></tr>
+      <% } %>
       
+
+      <tr class="service-details-group-header">
+        <th>Who's responsible</th>
+      </tr>
+      <% if (service.get('serviceOwner').label) { %>
+        <tr class="service-details-group-item"><th>Service owner</th><td><%- service.get('serviceOwner').label %></td></tr>
+      <% } if (service.get('serviceBusinessOwner').label) { %>
+        <tr class="service-details-group-item"><th>Business owner</th><td><%- service.get('serviceBusinessOwner').label %></td></tr>
+      <% } if (service.get('serviceTeam').label) { %>
+        <tr class="service-details-group-item"><th>Service delivery team </th><td><%- service.get('serviceTeam').label %></td></tr>
+      <% } %>
       
     </tbody>
   </table>

@@ -1,45 +1,26 @@
 <div id="container">
-<h1><a href="<%- base %>"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i> <%- category.get("label") %></h1>
+<h1><a href="<%- base %>" class="service-catalogue-home-link"><i class="fa fa-bars" title="Service Catalogue home"> </i></a> <%- category.get("label") %></h1>
 
 <div class="main-left category-view">
 <div class="definition"><%- category.get("definition") %></div>
 <section>
   <h2>Services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service, tag: 'h2'}) %><% }}); %>
+    if (service.get("catalogueReady")) { %><%= templates.serviceInList({service: service, tag: 'h2'}) %><% }}); %>
   </ul>
 </section>
 <section>
   <h2>Additional services</h2>
   <ul class="services"><% category.getServices().forEach(function(service) { 
-    if (!service.get("catalogueReady")) { %><%= serviceInListTemplate({service: service, tag: 'h2'}) %><% }}); %>
+    if (!service.get("catalogueReady")) { %><%= templates.serviceInList({service: service, tag: 'h2'}) %><% }}); %>
   </ul>
 </section>
 </div>
 <div class="sidebar-right">
-<aside id="service-groups" class="groups">
-  <h2 class="hidden">Categories</h2>
-  <ul><% categories.forEach(function(otherCategory) {
-           if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %>
-    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %> data-uri="<%- category.get('uri') %>">
-      <a href="<%- otherCategory.get("url") %>">
-        <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
-        <%- otherCategory.get("label") %>
-      </a>
-    </li><% }}); %>
-  </ul>
-</aside>
-<aside id="user-groups" class="groups">
-  <h2 class="hidden">User groups</h2>
-  <ul><% categories.forEach(function(otherCategory) {
-           if (otherCategory.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %>
-    <li<% if (otherCategory.get("slug") == category.get("slug")) { %> class="active"<% } %> data-uri="<%- category.get('uri') %>">
-      <a href="<%- otherCategory.get("url") %>">
-        <i class="fa fa-fw fa-<%- otherCategory.get("fontAwesome") %>"> </i>
-        <%- otherCategory.get("label") %>
-      </a>
-    </li><% }}); %>
-  </ul>
-</aside>
+<%= templates.categoryAside({
+	templates: templates,
+	categories: categories,
+	activeCategories: [category]
+	}) %>
 </div>
 </div>

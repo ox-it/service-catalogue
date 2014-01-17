@@ -1,5 +1,6 @@
-<section id="servcat">
-  <h1><a href="<%- base %>"><i class="fa fa-home"> </i></a> <i class="fa fa-chevron-right"> </i>
+<div id="container">
+<div class="main-left service-view">
+  <h1><a href="<%- base %>" class="service-catalogue-home-link"><i class="fa fa-bars" title="Service Catalogue home"> </i></a>
     <%- service.get("label") %></h1>
     
     <a class="status statusUp" href="http://status.ox.ac.uk/" >Status: up</a>
@@ -66,4 +67,13 @@
       
     </tbody>
   </table>
-</section>
+</div>
+<div class="sidebar-right">
+<%= templates.categoryAside({
+	templates: templates,
+	categories: categories,
+	activeCategories: categories.filter(function(category) { return _.contains(category.getServices(), service); })
+	}) %>
+</div>
+</div>
+  

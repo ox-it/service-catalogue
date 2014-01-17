@@ -1,0 +1,8 @@
+<ul><% categories.forEach(function(category) { %>
+    <li<% if (_.contains(activeCategories, category)) { %> class="active"<% } %> data-uri="<%- category.get('uri') %>">
+      <a href="<%- category.get("url") %>">
+        <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
+        <%- category.get("label") %>
+      </a>
+    </li><% }); %>
+</ul>

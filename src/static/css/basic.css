@@ -15,7 +15,14 @@ h1 {
   
 }
 
-.servCat h1 {
+a.service-catalogue-home-link {
+	color: #999 !important;
+}
+a.service-catalogue-home-link:hover {
+	color: #4D87C7 !important;
+}
+
+.service-catalogue h1 {
   
   margin-right: 4em;
   

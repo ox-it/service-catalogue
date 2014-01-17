@@ -34,7 +34,7 @@
     <input id="service-search-clear" type="reset" value="&times;">
     <input type="submit" value="Go!">
   </form>
-  <ul><% services.forEach(function(service) { %><%= serviceInListTemplate({service: service, includeTeaser: false, tag: 'span'}) %><% }); %>
+  <ul><% services.forEach(function(service) { %><%= templates.serviceInList({service: service, includeTeaser: false, tag: 'span'}) %><% }); %>
   </ul>
 </section>
 </div>

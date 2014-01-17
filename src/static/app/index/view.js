@@ -1,17 +1,16 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'tpl!templates/index', 'tpl!templates/service-in-list'],
+        'model', 'templates'],
         function(Backbone, $, _,
-        		model, indexTemplate, serviceInListTemplate) {
+        		model, templates) {
 	var IndexView = Backbone.View.extend({
-		template: indexTemplate,
 		render: function() {
 			Backbone.trigger('domchange:title', "Service Catalogue");
 			Backbone.trigger('domchange:status', '200');
 
-			this.$el.html(this.template({
+			this.$el.html(templates.index({
 				categories: model.categories,
 				services: model.services,
-				serviceInListTemplate: serviceInListTemplate,
+				templates: templates,
 				base: model.base
 			}));
 

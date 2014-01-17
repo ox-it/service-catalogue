@@ -1,14 +1,15 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'tpl!templates/service'],
+        'model', 'templates'],
         function(Backbone, $, _,
-        		model, serviceTemplate) {
+        		model, templates) {
 	var ServiceView = Backbone.View.extend({
-		template: serviceTemplate,
 		render: function() {
 		        Backbone.trigger('domchange:title', this.model.get('label'));
 		        Backbone.trigger('domchange:status', '200');
-			this.$el.html(this.template({
+			this.$el.html(templates.service({
 				service: this.model,
+				categories: model.categories,
+				templates: templates,
 				base: model.base
 			}));
 		}

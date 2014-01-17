@@ -3,7 +3,7 @@
 <div class="main-left index-view">
 <section id="service-groups" class="groups">
   <h2 class="hidden">Categories</h2>
-  <ul><% categories.forEach(function(category) {
+  <ul class="service-groups"><% categories.forEach(function(category) {
            if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group') { %><li class="service-group group"><div class="group-inner">
       <a href="<%- category.get("url") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>
@@ -16,7 +16,7 @@
 </section>
 <section id="user-groups" class="groups">
   <h2 class="hidden">User groups</h2>
-  <ul><% categories.forEach(function(category) {
+  <ul class="service-groups"><% categories.forEach(function(category) {
            if (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group') { %><li class="user-group group"><div class="group-inner">
       <a href="<%- category.get("url") %>">
         <i class="fa fa-fw fa-<%- category.get("fontAwesome") %>"> </i>

@@ -249,13 +249,19 @@ text-decoration: underline;
 
 
 
-.services {
+.services, .service-groups {
 	list-style: none;
-	padding: 0.1em;
+	margin: 0;
+	padding: 0;
 }
 
+.services > li, .service-group {
+        margin: 0;
+}
 
-
+.service h2 {
+        border: 0;
+}
 
 .service a:hover,
 .service a:focus {

@@ -20,6 +20,7 @@ a.service-catalogue-home-link {
 }
 a.service-catalogue-home-link:hover {
 	color: #4D87C7 !important;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 .service-catalogue h1 {
@@ -220,7 +221,8 @@ section#service-groups i.fa {
 
 #services ul {
 	list-style: none;
-	padding: 10px;
+	padding: 0;
+	margin-left: 0;
 	overflow-y: scroll;
 	border: 1px solid #bfc9d2;
 	border-radius: 3px;
@@ -575,5 +577,5 @@ background-color: #B94A48;
 }
 
 #services ul {
-	height: 640px;
+	height: 578px;
 }

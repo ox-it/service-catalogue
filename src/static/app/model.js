@@ -82,7 +82,9 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 					contactForm: (e._source.contact || {}).contactForm,
 					contactEmail: (e._source.contact || {}).email,
 					contactVoice: (e._source.contact || {}).voice,
-					contactVoiceExtension: (e._source.contact || {}).voiceExtension
+					contactVoiceExtension: (e._source.contact || {}).voiceExtension,
+					lifecycleStatus: (e._source.lifecycleStatus || {}).uri,
+					serviceType: (e._source.serviceType || {}).uri
 				};
 				if (!service.catalogueReady)
 					service.url = service.serviceInformation || service.homepage || service.serviceLevelDefinition;

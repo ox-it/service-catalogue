@@ -1,3 +1,5 @@
 <% if (service.get("status")) { var serviceStatus = status.statuses[service.get("status")]; %>
-<i class="service-status-display fa fa-fw fa-<%- serviceStatus.fontAwesome %>" data-service="<%- service.get("slug") %>" title="Service status: <%- serviceStatus.label %>" style="color: <%- serviceStatus.color %>"> </i>
+<div class="service-status-display" title="Service status: <%- serviceStatus.label %>"><a href="http://status.ox.ac.uk/"><i class="fa fa-fw fa-<%- serviceStatus.fontAwesome %>" data-service="<%- service.get("slug") %>" style="color: <%- serviceStatus.color %>"> </i>
+  Status: <%- serviceStatus.label %></a>
+</div>
 <% } %>

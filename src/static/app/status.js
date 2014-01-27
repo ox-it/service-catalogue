@@ -4,17 +4,17 @@ define(['backbone', 'jquery', 'underscore', 'model',
 		statuses: {
 			'Up': {
 				label: 'Up',
-				fontAwesome: 'check-square',
+				fontAwesome: 'arrow-circle-o-up',
 				color: '#015f05'
 			},
 			'Down': {
 				label: 'Down',
-				fontAwesome: 'bug',
+				fontAwesome: 'arrow-circle-o-down',
 				color: '#953b39'
 			},
 			'Partial': {
 				label: 'Partial',
-				fontAwesome: 'minus-square',
+				fontAwesome: 'circle-o',
 				color: '#f89406'
 			}
 		},

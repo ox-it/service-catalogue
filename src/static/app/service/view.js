@@ -1,7 +1,7 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'templates'],
+        'model', 'templates', 'status'],
         function(Backbone, $, _,
-        		model, templates) {
+        		model, templates, status) {
 	var ServiceView = Backbone.View.extend({
 		render: function() {
 		        Backbone.trigger('domchange:title', this.model.get('label'));
@@ -10,7 +10,8 @@ define(['backbone', 'jquery', 'underscore',
 				service: this.model,
 				categories: model.categories,
 				templates: templates,
-				base: model.base
+				base: model.base,
+				status: status
 			}));
 		}
 	});

@@ -503,6 +503,9 @@ padding-right: 1em;
 
 }
 
+div.main-left {
+	position: relative;
+}
 
 
 table.service-details a{
@@ -527,38 +530,20 @@ text-decoration: underline;
 /* status styling */
 
 
-a.status {
-  
-  background-color: #999;
-  color: #fff;
-  font-size: 1em;
-  font-weight: bold;
-  float: right;
-  margin-top: -4.5em;
-  padding: 1em;
+div.service-status-display {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+div.service-status-display a {
+  font-size: 0.85em;
+  padding: 0.5em;
   border-radius: 3px;
-  
-
-
-}
-
-a.status.statusUp {
-
-background-color: #019208;
-
-}
-
-a.status.statusPartial {
-
-background-color: #F89406;
+  border: 1px solid #ccc;
 }
 
 
-a.status.statusDown {
-
-background-color: #B94A48;
-
-}
 
 .featured-services {
 	list-style: none;

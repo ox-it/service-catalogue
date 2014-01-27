@@ -3,8 +3,7 @@
   <h1><a href="<%- base %>" class="service-catalogue-home-link"><i class="fa fa-bars" title="Service Catalogue home"> </i></a>
     <%- service.get("label") %></h1>
     
-    <a class="status statusUp" href="http://status.ox.ac.uk/" >Status: up</a>
-
+    <%= templates.status({service: service, status: status}) %>
 
   <div class="service-description">
     <% if (service.get("description_html")) { %>

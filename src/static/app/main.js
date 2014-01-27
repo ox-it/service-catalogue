@@ -80,7 +80,10 @@ define(["jquery", "backbone",
 	        $(document).attr('title', title + ' — IT Services');
 	}, this);
 	Backbone.on('domchange:status', function(status) {
-		$("meta[name='prerender-status-code']").attr('content', status);
+		var statusMeta = $("meta[name='prerender-status-code']");
+		if (!statusMeta.length)
+			statusMeta = $('<meta name="prerender-status-code"></meta>').appendTo($('head'));
+		statusMeta.attr('content', status);
 	});
 
 	Backbone.on('app:navigate', function() {

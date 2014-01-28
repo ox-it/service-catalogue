@@ -91,11 +91,15 @@ define(["jquery", "backbone",
 	});
 	
 	$(document).on('click', "a[href^='" + model.base + "']", function(event) {
+		// Disable JS-based navigation completely if the browser doesn't support it.
+		if (!(window.history && history.pushState)) return;
+
 		var href = $(event.currentTarget).attr('href');
 		try{
 			app_router.navigate(href.substr(model.base.length), {trigger: true});
 		} catch (e) {
 			console.log(e);
+			throw e;
 		}
 		event.preventDefault();
 		return false;

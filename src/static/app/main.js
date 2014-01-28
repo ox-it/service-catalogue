@@ -108,12 +108,11 @@ define(["jquery", "backbone",
 
 	model.categories.fetch().complete(_.bind(function() {
 		model.services.fetch().complete(_.bind(function() {
-			if (!!(window.history && history.pushState)) {
-				Backbone.history.start({
-					pushState: true,
-					root: model.base,
-				});
-			}
+			Backbone.history.start({
+				pushState: true,
+				hashChange: false,
+				root: model.base
+			});
 			status.registerForStatusUpdates();
 			status.updateStatus();
 			setInterval(status.updateStatus, 60000);

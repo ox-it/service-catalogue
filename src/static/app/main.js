@@ -86,35 +86,37 @@ define(["jquery", "backbone",
 		statusMeta.attr('content', status);
 	});
 
-	Backbone.on('app:navigate', function() {
-		app_router.navigate.apply(app_router, arguments);
-	});
-	
-	$(document).on('click', "a[href^='" + model.base + "']", function(event) {
-		// Disable JS-based navigation completely if the browser doesn't support it.
-		if (!(window.history && history.pushState)) return;
+	// Disable JS-based navigation completely if the browser doesn't support it.
+	if (!!(window.history && history.pushState)) {
+		Backbone.on('app:navigate', function() {
+			app_router.navigate.apply(app_router, arguments);
+		});
 
-		var href = $(event.currentTarget).attr('href');
-		try{
-			app_router.navigate(href.substr(model.base.length), {trigger: true});
-		} catch (e) {
-			console.log(e);
-			throw e;
-		}
-		event.preventDefault();
-		return false;
-	});
+		$(document).on('click', "a[href^='" + model.base + "']", function(event) {
 	
+			var href = $(event.currentTarget).attr('href');
+			try{
+				app_router.navigate(href.substr(model.base.length), {trigger: true});
+			} catch (e) {
+				console.log(e);
+				throw e;
+			}
+			event.preventDefault();
+			return false;
+		});
+	}
 
-    model.categories.fetch().complete(_.bind(function() {
-        model.services.fetch().complete(_.bind(function() {
-        	Backbone.history.start({
-        		pushState: true,
-			root: model.base,
-        	});
-        	status.registerForStatusUpdates();
-        	status.updateStatus();
-        	setInterval(status.updateStatus, 60000);
-        }, this));
-    }, this));
+	model.categories.fetch().complete(_.bind(function() {
+		model.services.fetch().complete(_.bind(function() {
+			if (!!(window.history && history.pushState)) {
+				Backbone.history.start({
+					pushState: true,
+					root: model.base,
+				});
+			}
+			status.registerForStatusUpdates();
+			status.updateStatus();
+			setInterval(status.updateStatus, 60000);
+		}, this));
+	}, this));
 });

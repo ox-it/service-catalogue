@@ -114,7 +114,7 @@ define(["jquery", "backbone",
 				root: model.base
 			});
 			status.updateStatus();
-			setInterval(status.updateStatus, 60000);
+			setInterval(status.updateStatus, 5000);
 		}, this));
 	}, this));
 });

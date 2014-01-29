@@ -3,10 +3,7 @@ define(['backbone', 'jquery', 'underscore',
         function(Backbone, $, _,
         		model, templates) {
 	var IndexView = Backbone.View.extend({
-		render: function() {
-			Backbone.trigger('domchange:title', "Service Catalogue");
-			Backbone.trigger('domchange:status', '200');
-
+		initialize: function() {
 			this.$el.html(templates.index({
 				categories: model.categories,
 				services: model.services,
@@ -15,15 +12,21 @@ define(['backbone', 'jquery', 'underscore',
 			}));
 
 			this.$serviceSearch = this.$el.find('#service-search');
-			if ("onpropertychange" in this.$serviceSearch.get()) { // Older IEs
+			this.$serviceSearchClear = this.$el.find('#service-search-clear');
+
+		},
+		render: function() {
+			Backbone.trigger('domchange:title', "Service Catalogue");
+			Backbone.trigger('domchange:status', '200');
+			
+			if ("onpropertychange" in this.$serviceSearch.get(0)) { // Older IEs
 				this.$serviceSearch.on("propertychange", _.bind(function(ev) {
-					if (ev.propertyName == 'value')
+					if ((ev.originalEvent || ev).propertyName == 'value')
 						this.filterServices(ev);
 				}, this));
 			} else { // More standards-compliant browsers
 				this.$serviceSearch.on('input', _.bind(this.filterServices, this));
 			}
-			this.$serviceSearchClear = this.$el.find('#service-search-clear');
 			this.$serviceSearchClear.on('click', _.bind(function(ev) {
 				this.$serviceSearch.val("").focus();
 				this.filterServices();

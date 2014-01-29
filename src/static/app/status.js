@@ -18,17 +18,17 @@ define(['backbone', 'jquery', 'underscore', 'model',
 				color: '#f89406'
 			}
 		},
-		registerForStatusUpdates: function() {
-			model.services.forEach(function(service) {
-				if (!service.get('statusId'))
-					return;
-				service.on('change:status', function() {
-					var newServiceStatusDisplay = statusTemplate({
+		addStatusSubscriptions: function($el) {
+			$el.find('.service-status-display').each(function() {
+				var service = model.services.get(this.getAttribute('data-service'));
+				if (!service) return;
+				service.on('change:status', _.bind(function() {
+					var newStatusInner = templates.statusInner({
 						status: status,
 						service: service
 					});
-					$('.service-status-display[data-service="' + service.get('slug') + '"]').replaceWith(newServiceStatusDisplay);
-				});
+					this.innerHTML = newStatusInner;
+				}, this));
 			});
 		},
 		updateStatus: function() {

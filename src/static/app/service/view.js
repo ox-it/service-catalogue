@@ -3,9 +3,7 @@ define(['backbone', 'jquery', 'underscore',
         function(Backbone, $, _,
         		model, templates, status) {
 	var ServiceView = Backbone.View.extend({
-		render: function() {
-		        Backbone.trigger('domchange:title', this.model.get('label'));
-		        Backbone.trigger('domchange:status', '200');
+		initialize: function() {
 			this.$el.html(templates.service({
 				service: this.model,
 				categories: model.categories,
@@ -13,6 +11,11 @@ define(['backbone', 'jquery', 'underscore',
 				base: model.base,
 				status: status
 			}));
+			status.addStatusSubscriptions(this.$el);
+		},
+		render: function() {
+	        Backbone.trigger('domchange:title', this.model.get('label'));
+	        Backbone.trigger('domchange:status', '200');
 		}
 	});
 	return ServiceView;

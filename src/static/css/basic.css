@@ -423,25 +423,14 @@ margin-top: 0px;
 }
 
 table.service-details  {
-    
-clear: both;
-    font-size: 1.1em;
-
-
-
+	clear: both;
+	font-size: 1.1em;
 }
-
-
-
-
-
 
 table.service-details th,
 table.service-details td {
-    
-padding-bottom: 5px;
-
-
+	padding-bottom: 5px;
+	vertical-align: bottom;
 }
 
 
@@ -541,7 +530,7 @@ text-decoration: underline;
 
 div.service-status-display {
   position: absolute;
-  top: 25px;
+  top: 22px;
   right: 0;
 }
 

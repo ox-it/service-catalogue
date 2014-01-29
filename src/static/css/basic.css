@@ -68,7 +68,7 @@ a, a:link, a:visited {
 
 a:hover, a:focus, a:active,
 h1 a:hover, h1 a:focus, h1 a:active {
-	
+	background: none;
 	color: #002147;
 
 }

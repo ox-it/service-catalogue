@@ -54,7 +54,7 @@ define(['backbone', 'jquery', 'underscore',
 					this.sortServices(slugs);
 				}, this);
 				this.currentFilterCallback = callback;
-				$.get('https://data.ox.ac.uk/search/', {
+				$.get(model.searchEndpoint, {
 					format: 'json',
 					type: 'service',
 					'filter.organizationPart.uri': 'http://oxpoints.oucs.ox.ac.uk/id/31337175',

@@ -541,7 +541,7 @@ text-decoration: underline;
 
 div.service-status-display {
   position: absolute;
-  top: 0;
+  top: 25px;
   right: 0;
 }
 

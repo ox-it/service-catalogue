@@ -10,13 +10,24 @@ section.groups a {
 
 .sidebar-right aside{
   
-  clear: both;
+  /*clear: both;
   max-width: 500px;
 	position: relative;
-	
+	*/
 	border-top: 20px solid #ebeff3;
+	width: 23%;
   
 }
+
+
+
+div.main-left {
+  
+  float: left;
+  width: 75%;
+  
+}
+
 
 
 

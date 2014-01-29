@@ -207,22 +207,24 @@ section#service-groups i.fa {
 }
 
 #container {
-	padding-right: 360px;
+/*	padding-right: 360px;
 	position: relative;
+*/
 }
 
 #container .sidebar-right {
-	position: absolute;
+/*	position: absolute;
 	top: 0;
 	right: 20px;
 	width: 320px;
-	
+	*/
 }
 
 #services ul {
 	list-style: none;
 	padding: 0;
 	margin-left: 0;
+	padding: 5px;
 	overflow-y: scroll;
 	border: 1px solid #bfc9d2;
 	border-radius: 3px;

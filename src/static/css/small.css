@@ -8,27 +8,29 @@ section.groups a {
 
 
 
-.sidebar-right aside{
+div.main-left {
+  
+  float: left;
+  width: 70%;
+  
+  
+}
+
+
+
+.sidebar-right {
   
   /*clear: both;
   max-width: 500px;
 	position: relative;
 	*/
-	border-top: 20px solid #ebeff3;
-	width: 23%;
-  
+	clear: none;
+	float: right;
+
+	width: 28%;
+	
+
 }
-
-
-
-div.main-left {
-  
-  float: left;
-  width: 75%;
-  
-}
-
-
 
 
 #services ul {

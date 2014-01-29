@@ -271,6 +271,7 @@ text-decoration: underline;
 .service a:focus {
 
 color: #001247;  
+background-color: transparent;
 }
 
 .catalogue-ready-service h2 {
@@ -426,6 +427,7 @@ table.service-details  {
 clear: both;
     font-size: 1.1em;
 
+padding-bottom: 25px;
 }
 
 table.service-details th,

@@ -15,7 +15,14 @@ define(['backbone', 'jquery', 'underscore',
 			}));
 
 			this.$serviceSearch = this.$el.find('#service-search');
-			this.$serviceSearch.on('input', _.bind(this.filterServices, this));
+			if ("onpropertychange" in this.$serviceSearch.get()) { // Older IEs
+				this.$serviceSearch.on("propertychange", _.bind(function(ev) {
+					if (ev.propertyName == 'value')
+						this.filterServices(ev);
+				}, this));
+			} else { // More standards-compliant browsers
+				this.$serviceSearch.on('input', _.bind(this.filterServices, this));
+			}
 			this.$serviceSearchClear = this.$el.find('#service-search-clear');
 			this.$serviceSearchClear.on('click', _.bind(function(ev) {
 				this.$serviceSearch.val("").focus();

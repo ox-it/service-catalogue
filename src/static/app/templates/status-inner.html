@@ -1,4 +1,4 @@
 <% { var serviceStatus = status.statuses[service.get("status")]; %>
-<a href="http://status.ox.ac.uk/" title="Service status: <%- serviceStatus.label %>"><i class="fa fa-fw fa-<%- serviceStatus.fontAwesome %>" style="color: <%- serviceStatus.color %>"> </i>
+<a class="service-status-<%- service.get("status").toLowerCase() %>" href="http://status.ox.ac.uk/" title="Service status: <%- serviceStatus.label %>"><i class="fa fa-fw fa-<%- serviceStatus.fontAwesome %>" style="color: <%- serviceStatus.color %>"> </i>
   Status: <%- serviceStatus.label %></a>
 <% } %>

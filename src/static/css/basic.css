@@ -427,15 +427,20 @@ table.service-details  {
 clear: both;
     font-size: 1.1em;
 
-padding-bottom: 25px;
+
+
 }
+
+
+
+
+
 
 table.service-details th,
 table.service-details td {
     
-/*  float: left;
+padding-bottom: 5px;
 
-  */
 
 }
 

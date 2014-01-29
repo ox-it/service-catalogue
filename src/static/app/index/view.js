@@ -35,7 +35,7 @@ define(['backbone', 'jquery', 'underscore',
 			this.$el.find('.group-inner').each(function(i, e) {
 				$(this).click(function(ev) {
 					if (ev.target == e) {
-						$(this).children('a').click();
+						$(this).children('a').get(0).click();
 						ev.preventDefault(true);
 					}
 				});

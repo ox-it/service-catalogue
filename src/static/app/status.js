@@ -1,5 +1,5 @@
 define(['backbone', 'jquery', 'underscore', 'model',
-        'tpl!templates/status'], function(Backbone, $, _, model, statusTemplate) {
+        'templates'], function(Backbone, $, _, model, templates) {
 	var status = {
 		statuses: {
 			'Up': {
@@ -32,7 +32,7 @@ define(['backbone', 'jquery', 'underscore', 'model',
 			});
 		},
 		updateStatus: function() {
-			$.get('http://status.ox.ac.uk/api/services.json', function(data) {
+			$.get(model.statusURL, function(data) {
 				var statuses = {};
 				_.each(data.groups, function(group) {
 					statuses[group.id] = group.status_name;

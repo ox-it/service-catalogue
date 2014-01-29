@@ -1,6 +1,7 @@
 define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
 	var base = $('.services-config').attr('data-site-root') || '/service-catalogue/src/';
 	var searchEndpoint = $('.services-config').attr('data-search-endpoint') || 'https://data.ox.ac.uk/search/';
+	var statusURL = $('.services-config').attr('data-status-url') || 'https://status.ox.ac.uk/api/services.json';
 
 	var Category = Backbone.Model.extend({
 		idAttribute: "slug",
@@ -103,6 +104,7 @@ define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, 
 		categories: categories,
 		Service: Service,
 		services: services,
-		searchEndpoint: searchEndpoint
+		searchEndpoint: searchEndpoint,
+		statusURL: statusURL
 	};
 })

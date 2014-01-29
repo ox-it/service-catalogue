@@ -6,7 +6,8 @@ define([
         'tpl!templates/not-found',
         'tpl!templates/service',
         'tpl!templates/service-in-list',
-        'tpl!templates/status'
+        'tpl!templates/status',
+        'tpl!templates/status-inner'
 ], function(
 		category,
 		categoryAside,
@@ -15,7 +16,8 @@ define([
 		notFound,
 		service,
 		serviceInList,
-		status) {
+		status,
+		statusInner) {
 	return {
 		category: category,
 		categoryAside: categoryAside,
@@ -24,6 +26,7 @@ define([
 		notFound: notFound,
 		service: service,
 		serviceInList: serviceInList,
-		status: status
+		status: status,
+		statusInner: statusInner
 	};
 });

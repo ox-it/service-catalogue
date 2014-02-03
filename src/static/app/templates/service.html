@@ -23,6 +23,10 @@
       <tr>
         <th>More info</th>
         <td><a href="<%- service.get("serviceInformation") %>"><%- service.get("serviceInformation") %></a></td>
+      </tr><% } if (service.get("serviceLevelDefinition")) { %>
+      <tr>
+        <th><abbr title="Service Level Description">SLD</abbr></th>
+        <td><a href="<%- service.get("serviceLevelDefinition") %>"><%- service.get("serviceLevelDefinition") %></a></td>
       </tr><% } if (false && service.get("twitter")) { %>
       <tr class="twitter" >
         <th>Twitter</th>

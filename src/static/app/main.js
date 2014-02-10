@@ -100,16 +100,34 @@ define(["jquery", "backbone",
 			app_router.navigate.apply(app_router, arguments);
 		});
 
+		// Intercept links
 		$(document).on('click', "a[href^='" + model.base + "']", function(event) {
-	
 			var href = $(event.currentTarget).attr('href');
-			try{
+			try {
 				app_router.navigate(href.substr(model.base.length), {trigger: true});
 			} catch (e) {
 				console.log(e);
 				throw e;
 			}
 			event.preventDefault();
+			return false;
+		});
+
+		// Intercept forms
+		$(document).on('submit', "form[action^='" + model.base + "']", function(event) {
+			// Don't intercept POST forms.
+			if (event.target.method.toLowerCase() != "get") return;
+			try {
+				var form = $(event.target);
+				var url = form.attr('action').substr(model.base.length);
+				url += "?" + form.serialize();
+				app_router.navigate(url, {trigger: true});
+			} catch (e) {
+				console.log(e);
+				throw e;
+			}
+			event.preventDefault();
+			console.log(event);
 			return false;
 		});
 	}

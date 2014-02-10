@@ -1,9 +1,9 @@
 define(["jquery", "backbone",
         "model", "status",
-        "index/view", "category/view", "service/view", "not-found/view"],
+        "index/view", "all/view", "category/view", "service/view", "not-found/view"],
   function($, Backbone,
 		   model, status,
-		   IndexView, CategoryView, ServiceView, NotFoundView) {
+		   IndexView, AllView, CategoryView, ServiceView, NotFoundView) {
     
 	if (!window.console) console = {log: function() {}};
 
@@ -11,6 +11,7 @@ define(["jquery", "backbone",
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'': 'index',
+			'all': 'all',
 			'category/:slug': 'category',
 			'service/:slug': 'service',
 			'*p': 'not-found'
@@ -44,6 +45,13 @@ define(["jquery", "backbone",
 			indexView = new IndexView();
 		renderView(indexView);
 	});
+
+	var allView = null;
+	app_router.on('route:all', function() {
+		if (!allView)
+			allView = new AllView();
+		renderView(allView);
+	})
 
 	var categoryViews = {};
 	app_router.on('route:category', function(slug) {

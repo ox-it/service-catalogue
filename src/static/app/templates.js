@@ -1,4 +1,5 @@
 define([
+        'tpl!templates/all',
         'tpl!templates/category',
         'tpl!templates/category-aside',
         'tpl!templates/category-list',
@@ -9,6 +10,7 @@ define([
         'tpl!templates/status',
         'tpl!templates/status-inner'
 ], function(
+		all,
 		category,
 		categoryAside,
 		categoryList,
@@ -19,6 +21,7 @@ define([
 		status,
 		statusInner) {
 	return {
+		all: all,
 		category: category,
 		categoryAside: categoryAside,
 		categoryList: categoryList,

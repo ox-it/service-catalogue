@@ -1,0 +1,17 @@
+<div id="container">
+<div class="main-left category-view">
+<h1><a href="<%- base %>" class="service-catalogue-home-link"><i class="fa fa-bars" title="Service Catalogue home"> </i></a> All Services</h1>
+<section>
+  <h2>Services</h2>
+  <ul class="services"><% services.each(function(service) {
+    if (service.get("catalogueReady")) { %><%= templates.serviceInList({service: service, tag: 'h2'}) %><% }}); %>
+  </ul>
+</section>
+<section>
+  <h2>Additional services</h2>
+  <ul class="services"><% services.each(function(service) {
+    if (!service.get("catalogueReady")) { %><%= templates.serviceInList({service: service, tag: 'h2'}) %><% }}); %>
+  </ul>
+</section>
+</div>
+</div>

@@ -43,7 +43,7 @@ define(['backbone', 'jquery', 'underscore', 'model',
 				model.services.forEach(function(service) {
 					var statusId = service.get("statusId");
 					if (statusId in statuses)
-						service.set("status", ["Up", "Down", "Partial"][Math.floor(Math.random()*3)]); // statuses[statusId]); 
+						service.set("status", statuses[statusId]);
 				});
 			}, 'json');
 		}

@@ -1,10 +1,12 @@
-define(['backbone', 'templates'], function(Backbone, templates) {
+define(['backbone', 'templates', 'model'], function(Backbone, templates, model) {
 	var NotFoundView = Backbone.View.extend({
 		render: function() {
 		    Backbone.trigger('domchange:title', "Not Found");
 		    Backbone.trigger('domchange:status', '404');
 
-			this.$el.html(templates.notFound());
+			this.$el.html(templates.notFound({
+				base: model.base
+			}));
 		}
 	});
 	

@@ -1,7 +1,6 @@
 define(['backbone', 'jquery', 'underscore',
-        'model', 'templates'],
-        function(Backbone, $, _,
-        		model, templates) {
+        'model', 'templates', 'services-filter'],
+        function(Backbone, $, _, model, templates, ServicesFilter) {
 	var IndexView = Backbone.View.extend({
 		initialize: function() {
 			this.$el.html(templates.index({
@@ -14,24 +13,18 @@ define(['backbone', 'jquery', 'underscore',
 			this.$serviceSearch = this.$el.find('#service-search');
 			this.$serviceSearchClear = this.$el.find('#service-search-clear');
 
+			this.servicesFilter = new ServicesFilter(
+				this.$el.find(".filterable-service-list"),
+				this.$el.find(".filterable-service-list li")
+			);
+
 		},
 		render: function() {
 			Backbone.trigger('domchange:title', "Service Catalogue");
 			Backbone.trigger('domchange:status', '200');
-			
-			if ("onpropertychange" in this.$serviceSearch.get(0)) { // Older IEs
-				this.$serviceSearch.on("propertychange", _.bind(function(ev) {
-					if ((ev.originalEvent || ev).propertyName == 'value')
-						this.filterServices(ev);
-				}, this));
-			} else { // More standards-compliant browsers
-				this.$serviceSearch.on('input', _.bind(this.filterServices, this));
-			}
-			this.$serviceSearchClear.on('click', _.bind(function(ev) {
-				this.$serviceSearch.val("").focus();
-				this.filterServices();
-				ev.preventDefault();
-			}, this));
+
+			this.servicesFilter.watchInput(this.$serviceSearch, this.$serviceSearchClear);
+
 			this.$el.find('.group-inner').each(function(i, e) {
 				$(this).click(function(ev) {
 					if (ev.target == e) {
@@ -39,42 +32,6 @@ define(['backbone', 'jquery', 'underscore',
 						ev.preventDefault(true);
 					}
 				});
-			});
-		},
-		currentFilterCallback: null,
-		filterServices: function() {
-			var val = $.trim(this.$serviceSearch.val());
-			if (val.length == 0) {
-				this.sortServices(null);
-			} else {
-				var callback = _.bind(function(data) {
-					if (this.currentFilterCallback != callback)
-						return;
-					var slugs = {}, i = 0;
-					_.each(data.hits.hits, function(e) {
-						slugs[e._source.notation.service] = i++;
-					});
-					this.sortServices(slugs);
-				}, this);
-				this.currentFilterCallback = callback;
-				$.get(model.searchEndpoint, {
-					format: 'json',
-					type: 'service',
-					'filter.organizationPart.uri': 'http://oxpoints.oucs.ox.ac.uk/id/31337175',
-					page_size: '3000',
-					q: val + '*'
-				}, callback, 'json');
-			}
-		},
-		sortServices: function(slugs) {
-			var $ul = $('#services ul');
-			var lis = $ul.find('li').get();
-			lis = _.sortBy(lis, function(li) {
-				return slugs ? slugs[li.getAttribute('data-slug')] : li.getAttribute('data-label').toLowerCase();
-			});
-			_.each(lis, function(li) {
-				$(li).toggle(!slugs || (li.getAttribute('data-slug') in slugs));
-				$ul.append(li);
 			});
 		}
 	});

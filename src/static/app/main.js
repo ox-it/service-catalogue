@@ -30,8 +30,8 @@ define(["jquery", "backbone",
 			currentView.remove();
 		
 		currentView = view;
-		currentView.render();
 		content.empty().append(currentView.el);
+		currentView.render();
 	};
 	
 	var notFoundView = new NotFoundView();

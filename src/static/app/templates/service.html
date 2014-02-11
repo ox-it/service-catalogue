@@ -42,7 +42,7 @@
       <% } if (service.get('contactEmail')) { %>
         <tr class="service-details-group-item"><th>Email</th><td><a href="<%- service.get('contactEmail') %>"><%- service.get('contactEmail').substr(7) %></a></td></tr>
       <% } if (service.get('contactVoice')) { %>
-        <tr class="service-details-group-item"><th>Telephone</th><td><a href="<%- service.get('contactVoice') %>"><%- service.get('contactVoiceExtension') || service.get('contactVoice') %></a></td></tr>
+        <tr class="service-details-group-item"><th>Telephone</th><td><a href="<%- service.get('contactVoice') %>"><%- service.get('contactVoiceLabel') || service.get('contactVoiceExtension') || service.get('contactVoice') %></a></td></tr>
       <% } if (service.get("userPopulation")) { %>
       <tr>
         <th>User population</th>

@@ -1,16 +1,19 @@
 define(['model'], function(model) {
-	var ServicesFilter = function($container, $items, callback) {
+	var ServicesFilter = function($container, $items, callbackBefore, callbackAfter) {
 		this.$container = $container;
 		this.$items = $items;
-		this.callback = callback;
+		this.callbackBefore = callbackBefore;
+		this.callbackAfter = callbackAfter;
 		this.searchCallback = null;
 	};
 
 	ServicesFilter.prototype = {
 		update: function(query) {
+			if (this.callbackBefore) this.callbackBefore(query);
+
 			if (!query || query.length == 0) {
 				this.searchCallback = null;
-				this.sortServices(null);
+				this.sortServices(null, null);
 			} else {
 				var callback = _.bind(function(data) {
 					if (this.searchCallback != callback)
@@ -20,7 +23,7 @@ define(['model'], function(model) {
 						slugs[e._source.notation.service] = i++;
 					});
 					this.searchCallback = null;
-					this.sortServices(slugs);
+					this.sortServices(query, slugs);
 				}, this);
 				this.searchCallback = callback;
 				$.get(model.searchEndpoint, {
@@ -32,7 +35,7 @@ define(['model'], function(model) {
 				}, callback, 'json');
 			}
 		},
-		sortServices: function(slugs) {
+		sortServices: function(query, slugs) {
 			var lis = this.$items.get();
 			var $container = this.$container;
 			lis = _.sortBy(lis, function(li) {
@@ -42,8 +45,7 @@ define(['model'], function(model) {
 				$(li).toggle(!slugs || (li.getAttribute('data-slug') in slugs));
 				$container.append(li);
 			});
-			if (this.callback)
-				callback();
+			if (this.callbackAfter) this.callbackAfter(query);
 		},
 		watchInput: function($input, $clear) {
 			// Watches a HTMLInputElement for changes and kicks off a filter

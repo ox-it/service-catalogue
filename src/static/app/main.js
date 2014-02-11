@@ -12,6 +12,7 @@ define(["jquery", "backbone",
 		routes: {
 			'': 'index',
 			'all': 'all',
+			'all?*p': 'all',
 			'category/:slug': 'category',
 			'service/:slug': 'service',
 			'*p': 'not-found'

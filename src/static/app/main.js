@@ -128,7 +128,6 @@ define(["jquery", "backbone",
 				throw e;
 			}
 			event.preventDefault();
-			console.log(event);
 			return false;
 		});
 	}

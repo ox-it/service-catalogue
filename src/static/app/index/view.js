@@ -24,6 +24,7 @@ define(['backbone', 'jquery', 'underscore',
 			Backbone.trigger('domchange:status', '200');
 
 			this.servicesFilter.watchInput(this.$serviceSearch, this.$serviceSearchClear);
+			this.$serviceSearch.focus();
 
 			this.$el.find('.group-inner').each(function(i, e) {
 				$(this).click(function(ev) {

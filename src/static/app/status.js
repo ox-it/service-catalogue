@@ -4,18 +4,19 @@ define(['backbone', 'jquery', 'underscore', 'model',
 		statuses: {
 			'Up': {
 				label: 'Up',
-				fontAwesome: 'arrow-circle-o-up',
-				color: '#015f05'
+				fontAwesome: 'arrow-circle-o-up'
 			},
 			'Down': {
 				label: 'Down',
-				fontAwesome: 'arrow-circle-o-down',
-				color: '#953b39'
+				fontAwesome: 'arrow-circle-o-down'
 			},
 			'Partial': {
 				label: 'Partial',
-				fontAwesome: 'circle-o',
-				color: '#f89406'
+				fontAwesome: 'circle-o'
+			},
+			'Unknown': {
+				label: 'Unknown',
+				fontAwesome: 'question-circle'
 			}
 		},
 		addStatusSubscriptions: function($el) {

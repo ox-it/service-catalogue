@@ -21,6 +21,7 @@ define(['backbone', 'jquery', 'underscore',
 		},
 		render: function() {
 			Backbone.trigger('domchange:title', "Service Catalogue");
+			Backbone.trigger('domchange:breadcrumb', []);
 			Backbone.trigger('domchange:status', '200');
 
 			this.servicesFilter.watchInput(this.$serviceSearch, this.$serviceSearchClear);

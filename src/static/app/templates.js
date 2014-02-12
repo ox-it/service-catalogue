@@ -1,5 +1,6 @@
 define([
         'tpl!templates/all',
+        'tpl!templates/breadcrumb',
         'tpl!templates/category',
         'tpl!templates/category-aside',
         'tpl!templates/category-list',
@@ -11,6 +12,7 @@ define([
         'tpl!templates/status-inner'
 ], function(
 		all,
+		breadcrumb,
 		category,
 		categoryAside,
 		categoryList,
@@ -22,6 +24,7 @@ define([
 		statusInner) {
 	return {
 		all: all,
+		breadcrumb: breadcrumb,
 		category: category,
 		categoryAside: categoryAside,
 		categoryList: categoryList,

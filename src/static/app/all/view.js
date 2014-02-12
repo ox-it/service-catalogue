@@ -19,11 +19,13 @@ define(['backbone', 'jquery', 'underscore',
 				_.bind(function(query) {
 					if (query) {
 						Backbone.trigger('domchange:title', "Search services: " + query);
+						Backbone.trigger('domchange:breadcrumb', [{href: 'all', label: 'All Services'}, {href: 'all?q=' + query, label: "Filtered by: " + query}]);
 						this.$el.find('h1 span').text("Search services: " + query);
 						if (window.history)
 							window.history.replaceState({}, "", "?q=" + query);
 					} else {
 						Backbone.trigger('domchange:title', "All services");
+						Backbone.trigger('domchange:breadcrumb', [{href: 'all', label: 'All Services'}]);
 						this.$el.find('h1 span').text("All services");
 						if (window.history)
 							window.history.replaceState({}, "", window.location.pathname);

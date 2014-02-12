@@ -1,8 +1,8 @@
 define(["jquery", "backbone",
-        "model", "status",
+        "model", "status", "templates",
         "index/view", "all/view", "category/view", "service/view", "not-found/view"],
   function($, Backbone,
-		   model, status,
+		   model, status, templates,
 		   IndexView, AllView, CategoryView, ServiceView, NotFoundView) {
     
 	if (!window.console) console = {log: function() {}};
@@ -88,6 +88,9 @@ define(["jquery", "backbone",
 	    else
 	        $(document).attr('title', title + ' — IT Services');
 	}, this);
+	Backbone.on('domchange:breadcrumb', function(breadcrumbs) {
+		$('ul.breadcrumb').replaceWith(templates.breadcrumb({breadcrumbs: breadcrumbs, base: model.base}));
+	})
 	Backbone.on('domchange:status', function(status) {
 		var statusMeta = $("meta[name='prerender-status-code']");
 		if (!statusMeta.length)

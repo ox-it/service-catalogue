@@ -39,3 +39,12 @@ div.main-left {
 	height: 640px;
 
 }
+
+.hidden-multi-column {
+	text-indent: -9999px;
+	position: absolute;
+	z-index: -10;
+	border: none;
+}
+
+}

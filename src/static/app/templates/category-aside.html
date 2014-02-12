@@ -1,12 +1,12 @@
 <aside id="service-groups" class="groups">
-  <h2 class="hidden">Categories</h2>
+  <h2 class="hidden-multi-column">Categories</h2>
   <%= templates.categoryList({
           categories: categories.filter(function(category) { return (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/service-group'); }),
           activeCategories: activeCategories
       }) %>
 </aside>
 <aside id="user-groups" class="groups">
-  <h2 class="hidden">User groups</h2>
+  <h2 class="hidden-multi-column">User groups</h2>
   <%= templates.categoryList({
           categories: categories.filter(function(category) { return (category.get('broader') == 'https://id.it.ox.ac.uk/service-category/user-group'); }),
           activeCategories: activeCategories

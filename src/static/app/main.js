@@ -14,7 +14,7 @@ define(["jquery", "backbone",
 			'all': 'all',
 			'all?*p': 'all',
 			'category/:slug': 'category',
-			'service/:slug': 'service',
+			':slug': 'service',
 			'*p': 'not-found'
 		}
 	});

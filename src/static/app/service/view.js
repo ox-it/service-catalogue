@@ -15,7 +15,7 @@ define(['backbone', 'jquery', 'underscore',
 		},
 		render: function() {
 	        Backbone.trigger('domchange:title', this.model.get('label'));
-			Backbone.trigger('domchange:breadcrumb', [{href: 'service/' + this.model.get('slug'), label: this.model.get('label')}]);
+			Backbone.trigger('domchange:breadcrumb', [{href: this.model.get('url'), label: this.model.get('label')}]);
 	        Backbone.trigger('domchange:status', '200');
 		}
 	});

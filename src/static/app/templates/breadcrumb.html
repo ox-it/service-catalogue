@@ -2,5 +2,5 @@
   <!-- navigation object : IT Services Breadcrumb -->
   <li><a href="/">IT Services Home</a></li>
   <li><a href="<%- base %>">Service Catalogue</a></li><% _.each(breadcrumbs, function(breadcrumb) { %>
-  <li><a href="<%- base %><%- breadcrumb.href %>"><%- breadcrumb.label %></a></li><% }); %>
+  <li><a href="<%- breadcrumb.href %>"><%- breadcrumb.label %></a></li><% }); %>
 </ul>

@@ -52,7 +52,7 @@ define(["jquery", "backbone",
 		if (!allView)
 			allView = new AllView();
 		renderView(allView);
-	})
+	});
 
 	var categoryViews = {};
 	app_router.on('route:category', function(slug) {
@@ -113,6 +113,7 @@ define(["jquery", "backbone",
 				console.log(e);
 				throw e;
 			}
+			window.scrollTo(0, 0);
 			event.preventDefault();
 			return false;
 		});
@@ -130,6 +131,7 @@ define(["jquery", "backbone",
 				console.log(e);
 				throw e;
 			}
+			window.scrollTo(0, 0);
 			event.preventDefault();
 			return false;
 		});

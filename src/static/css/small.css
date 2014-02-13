@@ -47,4 +47,6 @@ div.main-left {
 	border: none;
 }
 
+.service-details tr > *:first-child {
+	width: 10em;
 }

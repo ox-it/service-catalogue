@@ -105,7 +105,6 @@ li.group {
 	height: 150px;
 	width: 33%;
 	margin: 0 0 10px 0;
-	padding: 0;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -126,12 +125,16 @@ li.group {
 }
 
 div.group-inner {
+	margin-right: 10px;
+}
+
+div.group-inner a {
 	display: block;
 	text-decoration: none;
-	margin: 0 10px 0 0;
-	padding: 10px;
+	margin: 0 0 0 0;
 	position: relative;
 	border-radius: 3px;
+	padding: 10px;
 	color: #fff;
 	height: 130px;
 	cursor: pointer;

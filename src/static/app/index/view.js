@@ -26,15 +26,6 @@ define(['backbone', 'jquery', 'underscore',
 
 			this.servicesFilter.watchInput(this.$serviceSearch, this.$serviceSearchClear);
 			this.$serviceSearch.focus();
-
-			this.$el.find('.group-inner').each(function(i, e) {
-				$(this).click(function(ev) {
-					if (ev.target == e) {
-						$(this).children('a').get(0).click();
-						ev.preventDefault(true);
-					}
-				});
-			});
 		}
 	});
 

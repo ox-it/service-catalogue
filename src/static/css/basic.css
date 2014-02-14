@@ -133,25 +133,24 @@ div.group-inner a {
 	text-decoration: none;
 	margin: 0 0 0 0;
 	position: relative;
-	border-radius: 3px;
 	padding: 10px;
 	color: #fff;
 	height: 130px;
-	cursor: pointer;
+	border-radius: 3px;
 }
 
-li.service-group div.group-inner {
+li.service-group div.group-inner a {
 	background-color: #435870;
 }
-li.user-group div.group-inner {
+li.user-group div.group-inner a {
 	background-color: #002147;
 }
-li.service-group div.group-inner:hover,
-li.service-group div.group-inner:focus {
+li.service-group div.group-inner a:hover,
+li.service-group div.group-inner a:focus {
 	background-color: #002147;
 }
-li.user-group div.group-inner:hover,
-li.user-group div.group-inner:focus {
+li.user-group div.group-inner a:hover,
+li.user-group div.group-inner a:focus {
 	background-color: #435870;
 }
 

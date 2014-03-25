@@ -57,7 +57,7 @@ define(['model'], function(model) {
 				// we'll catch them here. IE10 does fire them, so IE9 is the
 				// only weird browser we care about.
 				if (window.navigator.userAgent.match(/MSIE 9\.0/)) {
-					$input.on('keydown', _.bind(function(ev) {
+					$input.on('keyup', _.bind(function(ev) {
 						if (ev.key == "Backspace" || ev.key == "Del")
 							this.inputEvent(ev);
 					}, this));

@@ -53,6 +53,15 @@ define(['model'], function(model) {
 			// out the HTMLInputElement's value and reset the filter.
 			if ("oninput" in $input.get(0)) { // "Modern" browsers
 				$input.on('input', _.bind(this.inputEvent, this));
+				// IE9 doesn't fire input events for backspace and delete, so
+				// we'll catch them here. IE10 does fire them, so IE9 is the
+				// only weird browser we care about.
+				if (window.navigator.userAgent.match(/MSIE 9\.0/)) {
+					$input.on('keydown', _.bind(function(ev) {
+						if (ev.key == "Backspace" || ev.key == "Del")
+							this.inputEvent(ev);
+					}, this));
+				}
 			} else if ("onpropertychange" in $input.get(0)) { // Older IEs
 				$input.on("propertychange", _.bind(function(ev) {
 					if ((ev.originalEvent || ev).propertyName == 'value')

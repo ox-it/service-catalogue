@@ -51,13 +51,15 @@ define(['model'], function(model) {
 			// Watches a HTMLInputElement for changes and kicks off a filter
 			// when its value changes. $clear can be a button that will wipe
 			// out the HTMLInputElement's value and reset the filter.
-			if ("onpropertychange" in $input.get(0)) { // Older IEs
+			if ("oninput" in $input.get(0)) { // "Modern" browsers
+				$input.on('input', _.bind(this.inputEvent, this));
+			} else if ("onpropertychange" in $input.get(0)) { // Older IEs
 				$input.on("propertychange", _.bind(function(ev) {
 					if ((ev.originalEvent || ev).propertyName == 'value')
 						this.inputEvent(ev);
 				}, this));
-			} else { // More standards-compliant browsers
-				$input.on('input', _.bind(this.inputEvent, this));
+			} else {
+				console.log("Can't filter services as we type");
 			}
 			if ($clear) {
 				$clear.on('click', _.bind(function(ev) {

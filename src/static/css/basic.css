@@ -231,6 +231,12 @@ color:#666;
 
 }
 
+#services ul li .service-item-inner{
+
+color:#bbb;
+
+}
+
 
 #services ul li a:hover,
 #services ul li a:focus{
@@ -336,18 +342,28 @@ padding: 3px;
 
 
 .category-view .service a{
-border-radius: 3px;
-background-color: #ebeff3;
-padding: 0.5em 1em;
-  display: block;
-color: #4D87C7;
-
-border-left: 30px solid #4D87C7;
-  margin: 0.7em 0px 0px 0px;
-
+	border-radius: 3px;
+	background-color: #ebeff3;
+	padding: 0.5em 1em;
+	display: block;
+	color: #4D87C7;
+	border-left: 30px solid #4D87C7;
+	margin: 0.7em 0px 0px 0px;
 }
 
+.category-view .service span.service-item-inner {
+	border-radius: 3px;
+	background-color: #ebeff3;
+	padding: 0.5em 1em;
+	display: block;
+	color: #B2B2B2;
+	border-left: 30px solid #B2B2B2;
+	margin: 0.7em 0px 0px 0px;
+}
 
+.category-view .service span.service-item-inner h2 {
+	color: #B2B2B2;
+}
 
 .category-view .service a:hover,
 .category-view .service a:focus, 

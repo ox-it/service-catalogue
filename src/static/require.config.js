@@ -22,7 +22,6 @@ var require = {
 	"cutter": {
 		"exports": "Cutter"
         }
-    },
-    enforceDefine: true
+    }
 };
 

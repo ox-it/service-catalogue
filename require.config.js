@@ -1,5 +1,5 @@
 var require = {
-    baseUrl: (/^\/services\//.test(document.location.path)) ? '/services/static/app' : "./static/app",
+    baseUrl: "./app",
     paths: {
          "backbone": "../lib/backbone-min",
          "underscore": "../lib/underscore-min",

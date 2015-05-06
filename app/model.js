@@ -1,5 +1,5 @@
 define(['backbone', 'underscore', 'jquery', 'cutter'], function(Backbone, _, $, Cutter) {
-	var base = $('.services-config').attr('data-site-root') || '/service-catalogue/src/';
+	var base = $('.services-config').attr('data-site-root') || '/service-catalogue/';
 	var searchEndpoint = $('.services-config').attr('data-search-endpoint') || 'https://data.ox.ac.uk/search/';
 	var statusURL = $('.services-config').attr('data-status-url') || 'https://status.ox.ac.uk/api/services.json';
 
